@@ -31,7 +31,7 @@ public class Driver extends JFrame
    * */  
   public Driver()
   {
-    Highscores.getInformation ();
+    //Highscores.getInformation ();
     frame.setSize(1005, 708);
     frame.setResizable (false);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 

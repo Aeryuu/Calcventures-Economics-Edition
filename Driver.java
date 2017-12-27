@@ -39,7 +39,7 @@ public class Driver extends JFrame
     frame.setVisible(true);
     try
     {
-      Thread.sleep (5000); 
+      Thread.sleep (8000); 
     }
     catch (Exception e)
     {
@@ -47,15 +47,6 @@ public class Driver extends JFrame
     frame.getContentPane().removeAll();    
     frame.getContentPane().add(new MainMenu());
     frame.setVisible(true);
-    
-    JRootPane rootPane = frame.getRootPane();
-    Action chm = new AbstractAction() { 
-      @Override public void actionPerformed(ActionEvent e) {
-        MainMenu.openChm();
-      }
-    };
-    rootPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"), "F1");
-    rootPane.getActionMap().put("F1", chm);
   }
   
   /**
