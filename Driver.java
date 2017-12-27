@@ -10,28 +10,10 @@ import java.awt.event.*;
  */
 public class Driver extends JFrame
 {  
-  /**
-   * Creates and saves the main JFrame in a variable named frame.
-   * 
-   * */    
   static JFrame frame = new JFrame("Calcventures: Economics Edition"); 
-  
-  /**
-   * The Driver Construtor with no parameters. This creates
-   * the JFrame and calls the SplashScreen. It then goes to the
-   * main menu.
-   * <p>
-   * <b>Local variables: </b>
-   * <p>
-   * <b>rootPane </b> Points to the JRootPane class.
-   * <p>
-   * <b>Exceptions</b>:
-   * <p>
-   * <b>e </b> Of type Exception used when using the Thread.sleep delay.
-   * */  
+
   public Driver()
   {
-    //Highscores.getInformation ();
     frame.setSize(1005, 708);
     frame.setResizable (false);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
