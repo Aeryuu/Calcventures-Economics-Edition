@@ -8,7 +8,6 @@ import javax.imageio.ImageIO;
 import java.net.URL;
 import javax.sound.sampled.*;
 
-
 public class MainMenu extends JPanel
 {
   public MainMenu ()
@@ -45,7 +44,6 @@ public class MainMenu extends JPanel
           System.exit(0);
         }
       }      
-    });
-          
+    });          
   }
 }

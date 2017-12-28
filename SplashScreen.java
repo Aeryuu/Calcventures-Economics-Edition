@@ -3,16 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-/** 
- * This class opens an image.
- */
-
 public class SplashScreen extends JPanel
 {
   
-  /**
-   * This is the class constructor.
-   */ 
   public SplashScreen() 
   {
   }
@@ -32,8 +25,7 @@ public class SplashScreen extends JPanel
     if (tracker.isErrorAny ())
     {
       return;
-    }
-    
+    }    
     graphics.drawImage (background, 0, 0, 1000, 675, null);
   }
 }
