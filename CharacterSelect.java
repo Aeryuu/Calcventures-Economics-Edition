@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 public class CharacterSelect extends JPanel
 {
-  static String userName;
+  static String userName = "";
   static String character = "";  
   static boolean charSelected = false;
   
