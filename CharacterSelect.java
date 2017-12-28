@@ -141,7 +141,12 @@ public class CharacterSelect extends JPanel
         }
         else
         {
-          inputField.setText ("The name must be 1-14 characters.");
+          JOptionPane.showMessageDialog(null, "The name must be 1-14 characters.", "Error!", JOptionPane.ERROR_MESSAGE);
+          myDialog.dispose();
+          getUserName ("Enter Name", "Hello! Please enter your name.", new JFrame ());   
+          revalidate();
+          repaint();
+          return;
         }
       }      
     }                                 
