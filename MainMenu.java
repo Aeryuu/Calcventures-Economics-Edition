@@ -22,5 +22,30 @@ public class MainMenu extends JPanel
     catch (IOException e)
     {
     }   
+    
+    //Goes to a different screen depending on what the user chooses
+    addMouseListener(new MouseAdapter() { 
+      public void mousePressed(MouseEvent e) { 
+        
+        int relativeX = e.getX();
+        int relativeY = e.getY();
+        
+        if (relativeX >= 105 && relativeX <= 404 && relativeY >= 226 && relativeY <= 421)
+        {
+          //Driver.changeScreens("CharacterSelect");
+          System.out.println ("Character selection screen");
+        }
+        else if (relativeX >= 591 && relativeX <= 892 && relativeY >= 266 && relativeY <= 421)
+        {
+          //Driver.changeScreens("Instructions");
+          System.out.println ("Instructions screen");
+        }
+        else if (relativeX >= 904 && relativeX <= 980 && relativeY >= 604 && relativeY <= 668)
+        {
+          System.exit(0);
+        }
+      }      
+    });
+          
   }
 }
