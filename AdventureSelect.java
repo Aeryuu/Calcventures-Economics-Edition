@@ -17,8 +17,6 @@ public class AdventureSelect extends JPanel
         int relativeX = e.getX();
         int relativeY = e.getY();
         
-        System.out.println (relativeX + " " + relativeY);
-        
         if (relativeX >= 52 && relativeX <= 286 && relativeY >= 109 && relativeY <= 327 && adventure.equals(""))
         {
           adventure = "ConSurplus";
@@ -57,8 +55,8 @@ public class AdventureSelect extends JPanel
         }
         else if (relativeX >= 427 && relativeX <= 57279 && relativeY >= 508 && relativeY <= 571 && !adventure.equals("")) //If they click Play
         {
-          //Driver.changeScreens(adventure); //Takes them to the adventure they chose
-          System.out.println ("Play"); 
+          System.out.println ("PRESSED PLAY"); 
+          Driver.changeScreens(adventure); //Takes them to the adventure they chose
         }
         else if (relativeX >= 862 && relativeX <= 934 && relativeY >= 43 && relativeY <= 114 && !adventure.equals("")) //If they click X
         {
