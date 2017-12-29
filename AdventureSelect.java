@@ -17,6 +17,8 @@ public class AdventureSelect extends JPanel
         int relativeX = e.getX();
         int relativeY = e.getY();
         
+        System.out.println (relativeX + " " + relativeY);
+        
         if (relativeX >= 52 && relativeX <= 286 && relativeY >= 109 && relativeY <= 327 && adventure.equals(""))
         {
           adventure = "ConSurplus";
@@ -53,14 +55,15 @@ public class AdventureSelect extends JPanel
           CharacterSelect.charSelected = false;
           Driver.changeScreens("MainMenu");
         }
-//      else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662 && !adventure.equals("")) //If they click Go!
-//      {
-//        Driver.changeScreens(adventure); //Takes them to the adventure they chose
-//      }
-//      else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662 && !adventure.equals("")) //If they click X
-//      {
-//        adventure = "";
-//      }
+        else if (relativeX >= 427 && relativeX <= 57279 && relativeY >= 508 && relativeY <= 571 && !adventure.equals("")) //If they click Play
+        {
+          //Driver.changeScreens(adventure); //Takes them to the adventure they chose
+          System.out.println ("Play"); 
+        }
+        else if (relativeX >= 862 && relativeX <= 934 && relativeY >= 43 && relativeY <= 114 && !adventure.equals("")) //If they click X
+        {
+          adventure = "";
+        }
       } 
     }); 
   }
@@ -69,7 +72,7 @@ public class AdventureSelect extends JPanel
   {    
     MediaTracker tracker = new MediaTracker (new Frame ());    
     
-//    Image a = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ConSurplus.png");
+    Image a = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ConSurplus.png");
 //    Image b = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ProSurplus.png");
 //    Image c = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargRevenue.png");
 //    Image d = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargCost.png");
@@ -77,7 +80,7 @@ public class AdventureSelect extends JPanel
 //    Image f = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select NetInvestFlow.png");
     Image main = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select.png");
     
-//    tracker.addImage (a, 0);        
+    tracker.addImage (a, 0);        
 //    tracker.addImage (b, 1);      
 //    tracker.addImage (c, 2);   
 //    tracker.addImage (d, 3);  
@@ -96,11 +99,15 @@ public class AdventureSelect extends JPanel
     {
       return;
     }
-    
-//    if (adventure.equals("ConSurplus"))
-//    {
-//      graphics.drawImage (a, 0, 0, null); 
-//    }
+  
+    if (adventure.equals(""))
+    {
+      graphics.drawImage (main, 0, 0, null); 
+    }
+    else if (adventure.equals("ConSurplus"))
+    {
+      graphics.drawImage (a, 0, 0, null); 
+    }
 //    else if (adventure.equals("ProSurplus"))
 //    {
 //      graphics.drawImage (b, 0, 0, null); 
@@ -121,10 +128,7 @@ public class AdventureSelect extends JPanel
 //    {
 //      graphics.drawImage (f, 0, 0, null); 
 //    }
-    if (adventure.equals(""))
-    {
-      graphics.drawImage (main, 0, 0, null); 
-    }
+
     repaint();
   }  
 
