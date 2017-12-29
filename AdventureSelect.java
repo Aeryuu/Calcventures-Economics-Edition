@@ -17,41 +17,49 @@ public class AdventureSelect extends JPanel
         int relativeX = e.getX();
         int relativeY = e.getY();
         
-        if (relativeX >= 52 && relativeX <= 286 && relativeY >= 109 && relativeY <= 327)
+        if (relativeX >= 52 && relativeX <= 286 && relativeY >= 109 && relativeY <= 327 && adventure.equals(""))
         {
           adventure = "ConSurplus";
           System.out.println (adventure);
         }
-        else if (relativeX >= 52 && relativeX <= 286 && relativeY >= 353 && relativeY <= 572)
+        else if (relativeX >= 52 && relativeX <= 286 && relativeY >= 353 && relativeY <= 572 && adventure.equals(""))
         {
           adventure = "ProSurplus";
           System.out.println (adventure);
         }
-        else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 109 && relativeY <= 327) 
+        else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 109 && relativeY <= 327 && adventure.equals("")) 
         {
           adventure = "MargRevenue";
           System.out.println (adventure);
         }
-        else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 353 && relativeY <= 572) 
+        else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 353 && relativeY <= 572 && adventure.equals("")) 
         {
           adventure = "MargCost";
           System.out.println (adventure);
         }
-        else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 109 && relativeY <= 327)
+        else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 109 && relativeY <= 327 && adventure.equals(""))
         {
           adventure = "MargProfit";  
           System.out.println (adventure);
         }
-        else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 353 && relativeY <= 572)
+        else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 353 && relativeY <= 572 && adventure.equals(""))
         {
           adventure = "NetInvestFlow";  
           System.out.println (adventure);
         }
-        else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662) //Main menu
+        else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662 && adventure.equals("")) //Main menu
         {
-          adventure = "";
+          CharacterSelect.character = "";
           Driver.changeScreens("MainMenu");
         }
+//      else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662 && !adventure.equals("")) //If they click Go!
+//      {
+//        Driver.changeScreens(adventure); //Takes them to the adventure they chose
+//      }
+//      else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662 && !adventure.equals("")) //If they click X
+//      {
+//        adventure = "";
+//      }
       } 
     }); 
   }
