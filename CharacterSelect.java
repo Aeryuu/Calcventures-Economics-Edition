@@ -23,7 +23,6 @@ public class CharacterSelect extends JPanel
         {
           character = "Blue";
           charSelected = true;
-          System.out.println ("Blue");
         }
         else if (relativeX >= 283 && relativeX <= 478 && relativeY >= 147 && relativeY <= 542)
         {
@@ -137,7 +136,7 @@ public class CharacterSelect extends JPanel
         {          
           myDialog.dispose ();
           frame.dispose();
-          Driver.changeScreens("Levels"); //this is gonna go to the adventure selection screen
+          Driver.changeScreens("AdventureSelect");
         }
         else
         {
