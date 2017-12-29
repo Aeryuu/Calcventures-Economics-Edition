@@ -50,6 +50,7 @@ public class AdventureSelect extends JPanel
         else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662 && adventure.equals("")) //Main menu
         {
           CharacterSelect.character = "";
+          CharacterSelect.charSelected = false;
           Driver.changeScreens("MainMenu");
         }
 //      else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662 && !adventure.equals("")) //If they click Go!
