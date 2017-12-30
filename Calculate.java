@@ -12,16 +12,12 @@ public class Calculate
             try
             {
                 v = true;
-//  BufferedReader br = new BufferedReader (new InputStreamReader (System.in));
-//  System.out.print ("Enter the highest degree of the polynomial: ");
-//  int degree = Integer.parseInt (br.readLine ());
                 double coefficient[] = new double [degree + 1];
                 double indefinite[] = new double [degree + 1];
                 double temp[] = new double [degree + 1];
                 double temp2 [] = new double [degree + 1];
                 double limit[] = new double [2];
                 double sell = 0;
-                //int sales = 500;
                 int count = degree;
                 for (int i = 0 ; i <= degree ; i++)
                 {
@@ -30,7 +26,6 @@ public class Calculate
                         sell += coefficient[i] * Math.pow(sales,degree-i);
                     if(i==degree)
                     {
-                       // System.out.println(coefficient[i]);
                         indefinite [i] = (coefficient[i] - sell)/(count+1);
                     }
                     else
@@ -43,18 +38,6 @@ public class Calculate
                     System.out.print (indefinite [i] + "\t");
                 }
                 System.out.println ("C");
-//                do
-//                {
-//                    System.out.print ("Enter the lower limit: ");
-//                    limit [0] = Double.parseDouble (br.readLine ());
-//                    System.out.print ("Enter the upper limit: ");
-//                    limit [1] = Double.parseDouble (br.readLine ());
-//                    if (limit [1] < limit [0])
-//                    {
-//                        System.out.println ("The bounds must be from small to large!");
-//                    }
-//                }
-//                while (limit [1] < limit [0]);
                 count = degree + 1;
                 for (int i = 0 ; i <= degree ; i++)
                 {
@@ -73,6 +56,7 @@ public class Calculate
             }
         }
         return(area - area2);
-      //  return 0;
     }
+    
+    //public static 
 }
