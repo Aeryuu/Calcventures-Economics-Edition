@@ -32,7 +32,6 @@ public class MainMenu extends JPanel
         if (relativeX >= 105 && relativeX <= 404 && relativeY >= 226 && relativeY <= 421)
         {
           Driver.changeScreens("CharacterSelect");
-          System.out.println ("Character selection screen");
         }
         else if (relativeX >= 591 && relativeX <= 892 && relativeY >= 266 && relativeY <= 421)
         {
