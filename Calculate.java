@@ -74,19 +74,10 @@ public class Calculate
         //if 2: 10 - 99; if 3: 100 - 999; if 4: 1000 - 9999
         return (int) (Math.random()*Math.pow(10,dig-1)*9+Math.pow(10,dig-1));
     }
-
+    
     public static double randCoef(int whichAd, double cons)
     {
-        DecimalFormat df = new DecimalFormat ("##.#");
-        return -(Double.parseDouble(df.format(Math.random()*(cons/100))));
-    }
-    
-    public static double randCoef2(int whichAd, double cons, double coef)
-    {
-        int dig = 0;
-        if(cons/100 - coef <= 0.5)
-            dig = 4
-        double rand = (Math.random()*(cons/(Math.pow(10,dig))));
+        double rand = (Math.random()*((cons/100)-0.05));
         DecimalFormat maxDigitsFormatter = new DecimalFormat("#.###################");
         StringBuilder pattern = new StringBuilder().append("0.0");
         double start = 0.1;
@@ -97,5 +88,38 @@ public class Calculate
         }
         DecimalFormat df = new DecimalFormat(pattern.toString());
         return -(Double.parseDouble(df.format(rand)));
+    }
+    
+    public static double randCoef2(int whichAd, double cons, double coef)
+    {
+        if(whichAd == 0)
+        {
+            if((int)(Math.random()*3) != 2){
+                int dig = 0, extra = 0;
+                if(-coef <= 0.0001) //To see how small third coef should be; this depends on how close coef is to cons/100. The closer it is, the smaller third coef is.
+                    dig = -4;
+                else if(cons/100 + coef > 0.1)
+                    dig = -5;
+                else //if(cons/100 - coef <= 0.1)
+                    dig = -6;
+                if(cons >=1000) //Extra is used to subtract cons/10000 by a number. This number, which always contains 5, depends on the number of zeroes. If cons/10000 = 0.4, number = 0.05. If cons/10000 = 0.04, number = 0.0005 and so on.
+                    extra = 2;
+                else if(cons >= 100)
+                    extra = 1;
+                double rand = (Math.random()*((cons*(Math.pow(10,dig)))-5*Math.pow(10,(dig+extra))));
+                DecimalFormat maxDigitsFormatter = new DecimalFormat("#.###################");
+                StringBuilder pattern = new StringBuilder().append("0.0");
+                double start = 0.1;
+                while(rand < start)
+                {
+                    start = start /10;
+                    pattern.append("0");
+                }
+                DecimalFormat df = new DecimalFormat(pattern.toString());
+                //System.out.println(df.format(
+                return -(Double.parseDouble(df.format(rand)));
+            }
+        }
+        return 0;
     }
 }
