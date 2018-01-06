@@ -25,12 +25,12 @@ public class Calculate
                         indefinite [i] = coefficient [i] / (count + 1);
                     count--;
                 }
-                System.out.print ("The indefinite integral is:\t");
+                System.out.print ("The indefinite integral is:\t"); //used for testing
                 for (int i = 0 ; i <= degree ; i++)
                 {
-                    System.out.print (indefinite [i] + "\t");
+                    System.out.print (indefinite [i] + "\t"); //used for testing
                 }
-                System.out.println ("C");
+                System.out.println ("C"); //used for testing
                 count = degree + 1;
                 for (int i = 0 ; i <= degree ; i++)
                 {
@@ -40,7 +40,7 @@ public class Calculate
                     area2 += temp2 [i];
                     count--;
                 }
-                System.out.println ("The area for these definite limits is " + df.format (area - area2) + " square units.");
+                System.out.println ("The area for these definite limits is " + df.format (area - area2) + " square units."); //used for testing
                 
             }
             catch (Throwable t)

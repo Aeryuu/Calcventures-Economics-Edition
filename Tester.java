@@ -1,4 +1,4 @@
-
+import java.util.*;
 import java.text.*;
 
 public class Tester
@@ -60,7 +60,7 @@ public class Tester
 //      System.out.println("X1: " + x1 + " X2: " + x2);
         
         
-//******************** Actual program
+//******************** Actual program for consur
         int degree = 2;
         double [] coeff = new double[degree + 1];
         DecimalFormat maxDF = new DecimalFormat("#.###################");
@@ -73,16 +73,16 @@ public class Tester
         coeff[0]=Calculate.randCoef2(0,coeff[2],coeff[1]);
         //Screen 1: Equation is introduced
         if(coeff[1] != 0)
-            term2 = maxDF.format(coeff[1])+"x";
+            term2 = maxDF.format(coeff[1])+"x"; //Bx form
         if(coeff[0] != 0)
-            term3 = maxDF.format(coeff[0])+"x^2 ";
-        System.out.println(maxDF.format(coeff[2]) + term2 + term3);//just for consur
+            term3 = maxDF.format(coeff[0])+"x^2 "; //Ax^2 form
+        System.out.println(maxDF.format(coeff[2]) + term2 + term3);//just for consur //just for testing
         //Screen 2: Introduce sales level
         if(coeff[0] != 0)
         {
             int x1=(int)((-coeff[1]+(Math.sqrt(Math.pow(coeff[1],2)-4*coeff[0]*coeff[2])))/(2*coeff[0]));
             int x2=(int)((-coeff[1]-(Math.sqrt(Math.pow(coeff[1],2)-4*coeff[0]*coeff[2])))/(2*coeff[0]));
-            System.out.println("x1: " + x1 + " and x2: " + x2);
+            System.out.println("x1: " + x1 + " and x2: " + x2); //used for testing
             if(x2>0 && (x2 < x1 || x1 < 0))
                 x = x2;
             if(x1>0 && (x1 < x2 || x2 < 0))
@@ -91,7 +91,7 @@ public class Tester
         else
             x = (int)(-coeff[2]/coeff[1]);
         sales = (int)(Math.random()*x);
-        System.out.println("x: " + x + " and Sales: " + sales);
+        System.out.println("x: " + x + " and Sales: " + sales); //partially used for testing
         
         //Screen 3: Calculate for selling price
         double sell = 0;
@@ -99,25 +99,52 @@ public class Tester
         {
             sell += coeff[i] * Math.pow(sales,degree-i);
         }
-        sell = Double.parseDouble(df.format(sell));
-        System.out.println("A) $" + df.format(sell)); //Real answer
-        System.out.println("B) $" + df.format(Math.abs(sell - coeff[2]))); //Fake answer, didn't add constant
-        if(-coeff[0]>0.001)
-            System.out.println("C) $" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
-        else if(-coeff[1]>0.001)
-            System.out.println("C) $" + df.format(sell - coeff[1]*sales)); //Fake answer, didn't add Bx
-        else
-            System.out.println("C) $" + df.format(sell - 1)); //Fake answer, in case, by some magical chance, both B and C are super small and sell price is close to constant
-        if((int)(Math.random()*2)==0)
-            System.out.println("D) $" + df.format(sell/2)); //Fake answer, divided sell by two
-        else
-            System.out.println("D) $" + df.format(sell*2)); //Fake answer, multiplied sell by two
+        sell = Double.parseDouble(df.format(sell)); //sell becomes the rounded price displayed on screen
+        ArrayList<Integer> arr = new ArrayList<Integer>(Arrays.asList(1,2,3,4));
+        int choice;
+        for (int y = 3; y >= 0; y--)
+        {
+            choice = (int)(Math.random()*y);
+            if(arr.get(choice) == 1)
+                System.out.println("A) $" + df.format(sell)); //Real answer
+            else if(arr.get(choice) == 2)
+                System.out.println("B) $" + df.format(Math.abs(sell - coeff[2]))); //Fake answer, didn't add constant
+            else if(arr.get(choice) == 3)
+            {
+                if(-coeff[0]>0.001)
+                    System.out.println("C) $" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
+                else if(-coeff[1]>0.001)
+                    System.out.println("C) $" + df.format(sell - coeff[1]*sales)); //Fake answer, didn't add Bx
+                else
+                    System.out.println("C) $" + df.format(sell - 1)); //Fake answer, in case, by some magical chance, both B and C are super small and sell price is close to constant
+            }
+            else//(arr.get(choice) == 4)
+            {
+                if((int)(Math.random()*2)==0)
+                    System.out.println("D) $" + df.format(sell/2)); //Fake answer, divided sell by two
+                else
+                    System.out.println("D) $" + df.format(sell*2)); //Fake answer, multiplied sell by two
+            }
+            arr.remove(choice);
+        }
         
         //Screen 4: Calculate integral
-        System.out.println("A) $" + df.format(Calculate.integrate(degree, coeff,0,sales, sell))); //Real answer
-        System.out.println("B) $" + df.format(Calculate.integrate(degree, coeff,0,sales, 0))); //Fake answer, forgot to subtract sell price
-        System.out.println("C) $" + df.format(Math.abs(Calculate.integrate(degree, coeff,0,sell, sell)))); //Fake answer, used sell price as upper bounds
-        System.out.println("D) $" + df.format(Math.abs(Calculate.integrate(degree, coeff,0,sell, sales)))); //Fake answer, used sell price as upper bounds and subtracted sales level
+        arr = new ArrayList<Integer>(Arrays.asList(1,2,3,4));
+        for (int y = 3; y >= 0; y--)
+        {
+            choice = (int)(Math.random()*y);
+            if(arr.get(choice) == 1)
+                System.out.println("A) $" + df.format(Calculate.integrate(degree, coeff,0,sales, sell))); //Real answer
+            else if(arr.get(choice) == 2)
+                System.out.println("B) $" + df.format(Calculate.integrate(degree, coeff,0,sales, 0))); //Fake answer, forgot to subtract sell price
+            else if(arr.get(choice) == 3)
+                System.out.println("C) $" + df.format(Math.abs(Calculate.integrate(degree, coeff,0,sell, sell)))); //Fake answer, used sell price as upper bounds
+            else//(arr.get(choice) == 4)
+                System.out.println("D) $" + df.format(Math.abs(Calculate.integrate(degree, coeff,0,sell, sales)))); //Fake answer, used sell price as upper bounds and subtracted sales level
+            arr.remove(choice);
+        }
+        
+        
         
         
 // ********************* To test the randomness of Math.random
