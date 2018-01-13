@@ -149,6 +149,7 @@ public class Tester
 //  System.out.println("Zeros: " + zero + " Ones: " + one + " Whats: " + what);
     }
     
+    
     //All the logic for consumer surplus
     public void consumerSurplus() 
     {
@@ -193,7 +194,7 @@ public class Tester
             sell += coeff[i] * Math.pow(sales,degree-i);
         }
         sell = Double.parseDouble(df.format(sell)); //sell becomes the rounded price displayed on screen
-        ArrayList<String> arr = new ArrayList<String>(Arrays.asList("A) $" + df.format(sell),"B) $" + df.format(Math.abs(sell - coeff[2]))));
+        ArrayList<String> arr = new ArrayList<String>(Arrays.asList("A) $" + sell,"B) $" + df.format(Math.abs(sell - coeff[2]))));
         if(-coeff[0]>0.001)
             arr.add("C) $" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
         else if(-coeff[1]>0.001)
@@ -210,8 +211,14 @@ public class Tester
             choice = (int)(Math.random()*y);
             System.out.println("Choice: " + choice + " Y: " + y + " Array int" + arr.get(choice)); //used for testing
             System.out.println(arr.get(choice));
+            arr.add(arr.get(choice));
             arr.remove(choice);
         }
+        for(int p = 0;p<4;p++)
+        {
+            System.out.print(arr.get(p) + "                    ");
+        }
+        System.out.println();
         //Screen 4: Calculate integral
         arr = new ArrayList<String>(Arrays.asList("A) $" + df.format(Calculate.integrate(degree, coeff,0,sales, sell)),"B) $" + df.format(Calculate.integrate(degree, coeff,0,sales, 0)),"C) $" + df.format(Math.abs(Calculate.integrate(degree, coeff,0,sell, sell))),"D) $" + df.format(Math.abs(Calculate.integrate(degree, coeff,0,sell, sales)))));
         for (int y = 4; y >= 1; y--)
