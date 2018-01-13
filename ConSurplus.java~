@@ -9,11 +9,11 @@ public class ConSurplus extends JPanel
 
   public ConSurplus()
   {      
-//    addMouseListener(new MouseAdapter() {  //Will use when images have been photoshopped
-//      public void mousePressed(MouseEvent e) { 
+    addMouseListener(new MouseAdapter() {  //Will use when images have been photoshopped
+      public void mousePressed(MouseEvent e) { 
         
-//        int relativeX = e.getX();
-//        int relativeY = e.getY();
+        int relativeX = e.getX();
+        int relativeY = e.getY();
 //        
 //        if (relativeX >= 749 && relativeX <= 981 && relativeY >= 584 && relativeY <= 659) //Next
 //        {
@@ -38,8 +38,8 @@ public class ConSurplus extends JPanel
 //            }
 //          }
 //        }
-//      } 
-//    }); 
+      } 
+    }); 
   }
   
   public void paintComponent (Graphics g)
@@ -48,5 +48,6 @@ public class ConSurplus extends JPanel
     Image conSurplus = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/ConSurplus" + counter + ".png");
     tracker.addImage (conSurplus, 0); 
     g.drawImage (conSurplus, 0, 0, null);
+    repaint();
   }
 }

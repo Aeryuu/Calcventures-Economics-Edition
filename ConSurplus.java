@@ -14,30 +14,73 @@ public class ConSurplus extends JPanel
         
         int relativeX = e.getX();
         int relativeY = e.getY();
-//        
-//        if (relativeX >= 749 && relativeX <= 981 && relativeY >= 584 && relativeY <= 659) //Next
-//        {
-//          if (counter != 6)
-//          {
-//            counter++;
-//            repaint();
-//          }
-//          else
-//          {
-//            Driver.changeScreens("MainMenu");
-//          }
-//        }
-//        else
-//        {
-//          if (relativeX >= 19 && relativeX <= 251 && relativeY >= 584 && relativeY <= 659) //Previous
-//          {
-//            if (counter != 1)
-//            {
-//              counter--;
-//              repaint();
-//            }
-//          }
-//        }
+        
+        System.out.println (relativeX + " " + relativeY);
+        
+        if (relativeX >= 832 && relativeX <= 916 && relativeY >= 548 && relativeY <= 601 && counter != 4 && counter != 6) //Next
+        {
+            counter++;
+            repaint();
+        }
+        
+        if (counter == 1)
+        {
+          //output the equation of the demand curve onto the screen
+        }
+        else if (counter == 2)
+        {
+          //output the value of the sales level onto the screen
+        }
+        else if (counter == 4)
+        {
+          //Paste in all of the math code, output demand curve equation, sales level, and four different selling prices onto the screen
+          
+          if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
+          {
+            //if answer is correct --> output a textbox telling them they are correct, counter++, repaint();
+            //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
+          }
+          else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
+          {
+            //if answer is correct --> output a textbox telling them they are correct, counter++, repaint();
+            //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
+          }
+          else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
+          {
+            //if answer is correct --> output a textbox telling them they are correct, counter++, repaint();
+            //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
+          }
+          else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
+          {
+            //if answer is correct --> output a textbox telling them they are correct, counter++, repaint();
+            //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
+          }
+        }
+        else if (counter == 6)
+        {
+          System.out.println ("At mission 2");
+          //Paste in all of the math code, output demand curve equation, sales level, selling price, and four possible answers onto the screen
+          if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
+          {
+            //if answer is correct --> output a textbox telling them they are correct, Driver.changeScreens("Raise");
+            //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
+          }
+          else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
+          {
+            //if answer is correct --> output a textbox telling them they are correct, Driver.changeScreens("Raise");
+            //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
+          }
+          else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
+          {
+            //if answer is correct --> output a textbox telling them they are correct, Driver.changeScreens("Raise");
+            //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
+          }
+          else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
+          {
+            //if answer is correct --> output a textbox telling them they are correct, Driver.changeScreens("Raise");
+            //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
+          }
+        }        
       } 
     }); 
   }
