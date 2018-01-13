@@ -25,6 +25,9 @@ public class ConSurplus extends JPanel
         
         if (counter == 4) //Mission 1
         {          
+          
+          //Insert math code here for selling price
+          
           if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
           {
             //if answer is correct --> output a textbox telling them they are correct, counter++, repaint();
@@ -45,6 +48,9 @@ public class ConSurplus extends JPanel
         }
         else if (counter == 6) //Mission 2
         {
+          
+          //Insert math code here for calculating the integral
+          
           if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
           {
             //if answer is correct --> output a textbox telling them they are correct, Driver.changeScreens("Raise");
