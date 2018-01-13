@@ -9,7 +9,7 @@ public class ConSurplus extends JPanel
 
   public ConSurplus()
   {      
-    addMouseListener(new MouseAdapter() {  //Will use when images have been photoshopped
+    addMouseListener(new MouseAdapter() {
       public void mousePressed(MouseEvent e) { 
         
         int relativeX = e.getX();
@@ -31,7 +31,7 @@ public class ConSurplus extends JPanel
         {
           //output the value of the sales level onto the screen
         }
-        else if (counter == 4)
+        else if (counter == 4) //Mission 1
         {
           //Paste in all of the math code, output demand curve equation, sales level, and four different selling prices onto the screen
           
@@ -56,9 +56,8 @@ public class ConSurplus extends JPanel
             //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
           }
         }
-        else if (counter == 6)
+        else if (counter == 6) //Mission 2
         {
-          System.out.println ("At mission 2");
           //Paste in all of the math code, output demand curve equation, sales level, selling price, and four possible answers onto the screen
           if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
           {
