@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-public class ConSurplus extends JPanel
+public class ProSurplus extends JPanel
 {
     int counter = 1, degree = 2, sales = 0, x = 0, choice;
     DecimalFormat maxDF = new DecimalFormat("#.###################");
@@ -14,27 +14,27 @@ public class ConSurplus extends JPanel
     double [] coeff = new double[degree + 1];
     static ArrayList<String> arr, arr2;
     
-    public ConSurplus()
+    public ProSurplus()
     {      
         //Generates Equation
-        coeff[2]=Calculate.randCons(0);
-        coeff[1]=Calculate.randCoef(0,coeff[2]);
-        coeff[0]=Calculate.randCoef2(0,coeff[2],coeff[1]);
-        if(coeff[1] != 0)
+        coeff[2]=Calculate.randCons(1);
+        coeff[1]=Calculate.randCoef(1,coeff[2]);
+        coeff[0]=Calculate.randCoef2(1,coeff[2],coeff[1]);
+         if(coeff[1] != 0)
         {
             if(coeff[1] == 1)
-                term2 = "x";
+                term2 = "+x";
             else
-                term2 = maxDF.format(coeff[1])+"x"; //Bx form
+                term2 = "+"+ maxDF.format(coeff[1]) + "x"; //Bx form
         }
-        if(coeff[0] != 0)
+       if(coeff[0] != 0)
         {
             if(coeff[0] == 1)
-                term3 = "x^2";
+                term3 = "+x^2";
             else
-                term3 = maxDF.format(coeff[0])+"x^2 "; //Ax^2 form
+                term3 = "+"+ maxDF.format(coeff[0]) + "x^2 "; //Ax^2 form
         }
-        System.out.println(maxDF.format(coeff[2]) + term2 + term3);//just for consur //just for testing
+        System.out.println(maxDF.format(coeff[2]) + term2 + term3);//just for testing
         equation = maxDF.format(coeff[2]) + term2 + term3;
         
         //Generates sales level
@@ -50,26 +50,25 @@ public class ConSurplus extends JPanel
         }
         else
             x = (int)(-coeff[2]/coeff[1]);
-        sales = (int)(Math.random()*(x-10)+10);
-        System.out.println("x: " + x + " and Sales: " + sales); //partially used for testing
+        sales = (int)(Math.random()*990 + 10);
+        System.out.println("Sales: " + sales); //partially used for testing
         
         //Calculates selling price and generates 4 options
-        for (int i = 0 ; i <= degree ; i++)
+         for (int i = 0 ; i <= degree ; i++)
         {
             sell += coeff[i] * Math.pow(sales,degree-i);
         }
         sell = Double.parseDouble(df.format(sell)); //sell becomes the rounded price displayed on screen
-        arr = new ArrayList<String>(Arrays.asList("$"+sell,"$" + df.format(Math.abs(sell - coeff[2])))); //puts in A and B
-        if(-coeff[0]>0.001) //to dtmn C
-            arr.add("$" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
-        else if(-coeff[1]>0.001)
-            arr.add("$" + df.format(sell - coeff[1]*sales)); //Fake answer, didn't add Bx
+        arr = new ArrayList<String>(Arrays.asList("A) $" + sell,"B) $" + df.format(Math.abs(sell - coeff[2]))));
+        if(-coeff[0]>0.001)
+            arr.add("C) $" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
+        else 
+            arr.add("C) $" + df.format(sell - coeff[1]*sales)); //Fake answer, didn't add Bx
+        if((int)(Math.random()*2)==0)
+            arr.add("D) $" + df.format(sell/2)); //Fake answer, divided sell by two
         else
-            arr.add("$" + df.format(sell - 1)); //Fake answer, in case, by some magical chance, both B and C are super small and sell price is close to constant
-        if((int)(Math.random()*2)==0) //to dtmn D
-            arr.add("$" + df.format(sell/2)); //Fake answer, divided sell by two
-        else
-            arr.add("$" + df.format(sell*2)); //Fake answer, multiplied sell by two 
+            arr.add("D) $" + df.format(sell*2)); //Fake answer, multiplied sell by two 
+        int choice;
         for (int y = 4; y >= 1; y--)
         {
             choice = (int)(Math.random()*y);
@@ -80,7 +79,7 @@ public class ConSurplus extends JPanel
         }
         
         //Calculates integral and generates 4 options
-        arr2 = new ArrayList<String>(Arrays.asList("$" + df.format(Calculate.integrate(0, degree, coeff,0,sales, sell)),"$" + df.format(Calculate.integrate(0, degree, coeff,0,sales, 0)),"$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,0,sell, sell))),"$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,0,sell, sales)))));
+        arr2 = new ArrayList<String>(Arrays.asList("$" + df.format(Calculate.integrate(1, degree, coeff,0,sales, sell)),"$" + df.format(Calculate.integrate(1, degree, coeff,0,sales, 0)),"$" + df.format(Math.abs(Calculate.integrate(1, degree, coeff,0,sell, sell))),"$" + df.format(Math.abs(Calculate.integrate(1, degree, coeff,0,sell, sales)))));
         correct = arr2.get(0);
         for (int y = 4; y >= 1; y--)
         {
@@ -108,7 +107,7 @@ public class ConSurplus extends JPanel
                 {          
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304  ) //First choice
                     {
-                        if(ConSurplus.getValue(0,0).equals("$"+sell))
+                        if(ProSurplus.getValue(0,0).equals("$"+sell))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
                             counter++;
@@ -123,7 +122,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
                     {
-                        if(ConSurplus.getValue(1,0).equals("$"+sell))
+                        if(ProSurplus.getValue(1,0).equals("$"+sell))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
                             counter++;
@@ -136,7 +135,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
-                        if(ConSurplus.getValue(2,0).equals("$"+sell))
+                        if(ProSurplus.getValue(2,0).equals("$"+sell))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
                             counter++;
@@ -149,7 +148,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
-                        if(ConSurplus.getValue(3,0).equals("$"+sell))
+                        if(ProSurplus.getValue(3,0).equals("$"+sell))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
                             counter++;
@@ -165,7 +164,7 @@ public class ConSurplus extends JPanel
                 {
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
                     {
-                        if(ConSurplus.getValue(0,1).equals(correct))
+                        if(ProSurplus.getValue(0,1).equals(correct))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
                             Driver.changeScreens("Raise");
@@ -180,7 +179,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
                     {
-                        if(ConSurplus.getValue(1,1).equals(correct))
+                        if(ProSurplus.getValue(1,1).equals(correct))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
                             Driver.changeScreens("Raise");
@@ -193,7 +192,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
-                        if(ConSurplus.getValue(2,1).equals(correct))
+                        if(ProSurplus.getValue(2,1).equals(correct))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
                             Driver.changeScreens("Raise");
@@ -206,7 +205,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
-                        if(ConSurplus.getValue(3,1).equals(correct))
+                        if(ProSurplus.getValue(3,1).equals(correct))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
                             Driver.changeScreens("Raise");
@@ -232,9 +231,9 @@ public class ConSurplus extends JPanel
     public void paintComponent (Graphics g)
     {
         MediaTracker tracker = new MediaTracker (new Frame ());    
-        Image conSurplus = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/ConSurplus" + counter + ".png");
-        tracker.addImage (conSurplus, 0); 
-        g.drawImage (conSurplus, 0, 0, null);
+        Image proSurplus = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/ProSurplus" + counter + ".png");
+        tracker.addImage (proSurplus, 0); 
+        g.drawImage (proSurplus, 0, 0, null);
         g.setFont(new Font("Times New Roman", Font.PLAIN, 24));
         g.setColor (Color.red);
         
