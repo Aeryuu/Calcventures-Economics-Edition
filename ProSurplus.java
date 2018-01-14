@@ -59,15 +59,15 @@ public class ProSurplus extends JPanel
             sell += coeff[i] * Math.pow(sales,degree-i);
         }
         sell = Double.parseDouble(df.format(sell)); //sell becomes the rounded price displayed on screen
-        arr = new ArrayList<String>(Arrays.asList("A) $" + sell,"B) $" + df.format(Math.abs(sell - coeff[2]))));
+        arr = new ArrayList<String>(Arrays.asList("$" + sell,"$" + df.format(Math.abs(sell - coeff[2]))));
         if(-coeff[0]>0.001)
-            arr.add("C) $" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
+            arr.add("$" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
         else 
-            arr.add("C) $" + df.format(sell - coeff[1]*sales)); //Fake answer, didn't add Bx
+            arr.add("$" + df.format(sell - coeff[1]*sales)); //Fake answer, didn't add Bx
         if((int)(Math.random()*2)==0)
-            arr.add("D) $" + df.format(sell/2)); //Fake answer, divided sell by two
+            arr.add("$" + df.format(sell/2)); //Fake answer, divided sell by two
         else
-            arr.add("D) $" + df.format(sell*2)); //Fake answer, multiplied sell by two 
+            arr.add("$" + df.format(sell*2)); //Fake answer, multiplied sell by two 
         int choice;
         for (int y = 4; y >= 1; y--)
         {
@@ -107,6 +107,7 @@ public class ProSurplus extends JPanel
                 {          
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304  ) //First choice
                     {
+                        System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
                         if(ProSurplus.getValue(0,0).equals("$"+sell))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
@@ -122,6 +123,7 @@ public class ProSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
                     {
+                        System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
                         if(ProSurplus.getValue(1,0).equals("$"+sell))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
@@ -135,6 +137,7 @@ public class ProSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
+                        System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
                         if(ProSurplus.getValue(2,0).equals("$"+sell))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
@@ -148,6 +151,7 @@ public class ProSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
+                        System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
                         if(ProSurplus.getValue(3,0).equals("$"+sell))
                         {
                             JOptionPane.showMessageDialog(null, "You did it!");
@@ -239,7 +243,7 @@ public class ProSurplus extends JPanel
         
         if (counter == 1)
         {
-            g.drawString (equation, 282, 307); //output the equation of the demand curve onto the screen
+            g.drawString (equation, 467, 307); //output the equation of the demand curve onto the screen
         }
         else if (counter == 2)
         {
