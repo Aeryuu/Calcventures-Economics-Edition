@@ -41,7 +41,7 @@ public class CharacterSelect extends JPanel
                 }
                 else if (relativeX >= 815 && relativeX <= 974 && relativeY >= 598 && relativeY <= 662 && charSelected) //Next 
                 {
-                    getUserName ("Enter Name", "Hello! Please enter your name.", new JFrame ());   
+                    Driver.changeScreens("AdventureSelect");   
                 }
                 else if (relativeX >= 26 && relativeX <= 185 && relativeY >= 598 && relativeY <= 662) //Main menu
                 {
@@ -102,59 +102,5 @@ public class CharacterSelect extends JPanel
             graphics.drawImage (main, 0, 0, null); 
         }
         repaint();
-    }
-    
-    public void getUserName(String title, String message, JFrame frame)
-    {
-        JDialog myDialog = new JDialog (frame, title);
-        
-        JTextField inputField = new JTextField (20);
-        
-        JLabel labelMessage = new JLabel (message);
-        
-        labelMessage.setFont (new Font ("Arial", Font.PLAIN, 16));
-        
-        myDialog.add (labelMessage);
-        
-        myDialog.add (inputField);
-        
-        myDialog.setResizable(false);
-        
-        myDialog.setSize (500, 100);
-        
-        myDialog.setLayout (new FlowLayout ());
-        
-        JButton enterName = new JButton ("Enter");
-        
-        enterName.addActionListener (new ActionListener ( )
-                                         {      
-            public void actionPerformed (ActionEvent e)
-            {
-                userName = inputField.getText ();
-                if (userName.length() > 0 && userName.length() < 15)
-                {          
-                    myDialog.dispose ();
-                    frame.dispose();
-                    Driver.changeScreens("AdventureSelect");
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "The name must be 1-14 characters.", "Error!", JOptionPane.ERROR_MESSAGE);
-                    myDialog.dispose();
-                    getUserName ("Enter Name", "Hello! Please enter your name.", new JFrame ());   
-                    revalidate();
-                    repaint();
-                    return;
-                }
-            }    
-        }                                 
-        ) ;   
-        
-        myDialog.add (enterName);
-        
-        myDialog.setLocationRelativeTo (frame);
-        
-        myDialog.setVisible (true);
-        
     }
 }
