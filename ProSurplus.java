@@ -59,7 +59,7 @@ public class ProSurplus extends JPanel
             sell += coeff[i] * Math.pow(sales,degree-i);
         }
         sell = Double.parseDouble(df.format(sell)); //sell becomes the rounded price displayed on screen
-        arr = new ArrayList<String>(Arrays.asList("$" + sell,"$" + df.format(Math.abs(sell - coeff[2]))));
+        arr = new ArrayList<String>(Arrays.asList("$" + df.format(sell),"$" + df.format(Math.abs(sell - coeff[2]))));
         if(-coeff[0]>0.001)
             arr.add("$" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
         else 

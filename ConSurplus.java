@@ -22,15 +22,15 @@ public class ConSurplus extends JPanel
         coeff[0]=Calculate.randCoef2(0,coeff[2],coeff[1]);
         if(coeff[1] != 0)
         {
-            if(coeff[1] == 1)
-                term2 = "x";
+            if(coeff[1] == -1)
+                term2 = "-x";
             else
                 term2 = maxDF.format(coeff[1])+"x"; //Bx form
         }
         if(coeff[0] != 0)
         {
-            if(coeff[0] == 1)
-                term3 = "x^2";
+            if(coeff[0] == -1)
+                term3 = "-x^2";
             else
                 term3 = maxDF.format(coeff[0])+"x^2 "; //Ax^2 form
         }
@@ -59,7 +59,7 @@ public class ConSurplus extends JPanel
             sell += coeff[i] * Math.pow(sales,degree-i);
         }
         sell = Double.parseDouble(df.format(sell)); //sell becomes the rounded price displayed on screen
-        arr = new ArrayList<String>(Arrays.asList("$"+sell,"$" + df.format(Math.abs(sell - coeff[2])))); //puts in A and B
+        arr = new ArrayList<String>(Arrays.asList("$"+df.format(sell),"$" + df.format(Math.abs(sell - coeff[2])))); //puts in A and B
         if(-coeff[0]>0.001) //to dtmn C
             arr.add("$" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
         else if(-coeff[1]>0.001)

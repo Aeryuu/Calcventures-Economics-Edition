@@ -7,6 +7,12 @@ public class Calculate
         boolean v = false;
         double area = 0, area2 = 0; 
         DecimalFormat df = new DecimalFormat ("0.00");
+        if(whichAd == 2)
+        {
+            coefficient[2] = coefficient[1];
+            coefficient[1] = coefficient[0];
+            coefficient[0] = 0;
+        }
         while (!v)
         {
             try
@@ -73,6 +79,12 @@ public class Calculate
             //if 1: 1 - 9; if 2: 10 - 99; if 3: 100 - 999
             return (int) (Math.random()*Math.pow(10,dig-1)*9+Math.pow(10,dig-1));
         }
+        if(whichAd == 2)
+        {
+            //First decide if it's gonna be 2 digits, 3 digits, or 4 digits
+            dig = (int)(Math.random()*4+1);
+            return (int) (Math.random()*Math.pow(10,dig-1)*9+Math.pow(10,dig-1));
+        }
         return 0;
     }
     
@@ -107,7 +119,19 @@ public class Calculate
             DecimalFormat df = new DecimalFormat(pattern.toString());
             return Double.parseDouble(df.format(rand));
         }
-        
+        if(whichAd == 2)
+        {
+            rand = (Math.random()*((cons/100)));
+            start = 0.01;
+            pattern = new StringBuilder().append("0.00");
+            while(rand < start)
+            {
+                start = start /10;
+                pattern.append("0");
+            }
+            DecimalFormat df = new DecimalFormat(pattern.toString());
+            return -(Double.parseDouble(df.format(rand)));
+        }
         return 0;
     }
     
