@@ -13,12 +13,13 @@ public class Fired extends JPanel
         int relativeX = e.getX();
         int relativeY = e.getY();
         
-        if (relativeX >= 130 && relativeX <= 215 && relativeY >= 500 && relativeY <= 553) //Go back to main menu
+        if (relativeX >= 28 && relativeX <= 148 && relativeY >= 581 && relativeY <= 658) //Go back to main menu
         {
             Driver.changeScreens("MainMenu");
         }
-        else if (relativeX >= 130 && relativeX <= 215 && relativeY >= 500 && relativeY <= 553) //Go back to adventure choosing screen
+        else if (relativeX >= 853 && relativeX <= 973 && relativeY >= 581 && relativeY <= 658) //Go back to adventure choosing screen
         {
+          AdventureSelect.adventure = "";
             Driver.changeScreens("AdventureSelect");
         }
       } 
@@ -33,8 +34,7 @@ public class Fired extends JPanel
     tracker.addImage (fired, 0); 
     tracker.addImage (character,1);
     g.drawImage (fired, 0, 0, this);
-    //put picture of character and write sentence
-    g.drawImage(character, 0, 0,this);
+    g.drawImage(character, 430, 280,this);
     System.out.println(CharacterSelect.character);
     
   }
