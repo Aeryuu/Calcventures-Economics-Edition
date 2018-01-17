@@ -32,10 +32,14 @@ public class Instructions extends JPanel
         {
           if (relativeX >= 786 && relativeX <= 870 && relativeY >= 500 && relativeY <= 553) //Next
           {
-            if (counter != 4)
+            if (counter != 3)
             {
               counter++;
               repaint();
+            }
+            else
+            {
+              Driver.changeScreens("MainMenu");
             }
           }
         }
