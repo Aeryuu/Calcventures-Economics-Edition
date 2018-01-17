@@ -68,22 +68,48 @@ public class Calculate
         if(whichAd == 0)
         {
             //First decide if it's gonna be 2 digits, 3 digits, or 4 digits
-            dig = (int)(Math.random()*3+2);
+            dig = ((int)(Math.random()*3)+2);
             //if 2: 10 - 99; if 3: 100 - 999; if 4: 1000 - 9999
-            return (int) (Math.random()*Math.pow(10,dig-1)*9+Math.pow(10,dig-1));
+            if(dig == 4)
+                return ((int) (Math.random()*9000) + 1000);
+            if(dig == 3)
+                return ((int) (Math.random()*900) + 100);
+            return ((int) (Math.random()*90) + 10);
         }
         if(whichAd == 1)
         {
-            dig = (int)(Math.random()*3+1);
+            dig = ((int)(Math.random()*3)+1);
             System.out.println(dig);
             //if 1: 1 - 9; if 2: 10 - 99; if 3: 100 - 999
-            return (int) (Math.random()*Math.pow(10,dig-1)*9+Math.pow(10,dig-1));
+            if(dig == 3)
+                return ((int) (Math.random()*900) + 100);
+            if(dig == 2)
+                return ((int) (Math.random()*90) + 10);
+            return ((int) (Math.random()*9) + 1);
         }
         if(whichAd == 2)
         {
-            //First decide if it's gonna be 2 digits, 3 digits, or 4 digits
-            dig = (int)(Math.random()*4+1);
-            return (int) (Math.random()*Math.pow(10,dig-1)*9+Math.pow(10,dig-1));
+            dig = ((int)(Math.random()*4)+1);
+            if(dig == 4)
+                return ((int) (Math.random()*9000) + 1000);
+            if(dig == 3)
+                return ((int) (Math.random()*900) + 100);
+            if(dig == 2)
+                return ((int) (Math.random()*90) + 10);
+            return ((int) (Math.random()*9) + 1);
+        }
+        if(whichAd == 3)
+        {
+            dig = (int)(Math.random()*4);
+            System.out.println(dig);
+            //if 1: 1 - 9; if 2: 10 - 99; if 3: 100 - 999; if 0: [0,1)
+            if(dig == 3)
+                return ((int) (Math.random()*900) + 100);
+            if(dig == 2)
+                return ((int) (Math.random()*90) + 10);
+            if(dig == 1)
+                return ((int) (Math.random()*9) + 1);
+            return Math.random();
         }
         return 0;
     }

@@ -12,6 +12,7 @@ public class MainMenu extends JPanel
 {
   public MainMenu ()
   {
+    AdventureSelect.adventure = ""; 
     try
     {
       BufferedImage image = ImageIO.read(new File("Backgrounds/Main Menu.png"));

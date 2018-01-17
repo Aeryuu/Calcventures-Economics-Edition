@@ -295,7 +295,64 @@ public class Tester
     //All the logic marginal revenue
     public void marginalRevenue()
     {
+        int degree = 1;
+        double [] coeff = new double[degree + 1];
+        DecimalFormat maxDF = new DecimalFormat("#.###################");
+        DecimalFormat df = new DecimalFormat ("0.00");
+        String term2 = "";
+        int max = 0, first = 0, second = 0, choice = 0;
+        ArrayList<String> arr;
         
+        coeff[1]=Calculate.randCons(2);
+        coeff[0]=Calculate.randCoef(2, coeff[1]);
+        //coeff[0]=Calculate.randCoef2(1,coeff[2],coeff[1]);
+        //Screen 1: Equation is introduced
+        if(coeff[0] != 0)
+        {
+             if(coeff[0] == -1)
+                term2 = "-x";
+            else
+                term2 = maxDF.format(coeff[0])+"x"; //Bx form
+        }
+        System.out.println(maxDF.format(coeff[1]) + term2);//just for testing
+        
+        //Screen 2: Introduce sales level
+        max = (int)(-coeff[1]/coeff[0]);
+        second = (int)(Math.random()*(max-30)+30); 
+        if((int)(Math.random()*2) == 1)
+            first = (int)(Math.random()*(second-10));
+        System.out.println("max: " + max + " first: " + first + " and second: " + second); //partially used for testing
+        
+        //Screen 3: Calculate integral
+        arr = new ArrayList<String>(Arrays.asList("A) $" + df.format(Calculate.integrate(0, degree, coeff, first ,second, 0))));
+        if(first != 0)
+        {
+            arr.add("B) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first ,second + (second-first),0))));
+            arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,0,second,0))));
+        }
+        else
+        {
+            if ((int)(Math.random()*2)==0)
+                arr.add("B) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first/2,second/2,0))));
+            else
+                arr.add("B) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first*2 ,second*2,0))));
+            if((int)(Math.random()*2)==0)
+                arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first*3,second*3,0))));
+            else
+                arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first/3,second/3,0))));
+        }
+        if((int)(Math.random()*2)==0)
+            arr.add("D) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first*2, second/3,0))));
+        else
+            arr.add("D) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first/3, second*2,  0))));
+        for (int y = 4; y >= 1; y--)
+        {
+            choice = (int)(Math.random()*y);
+            System.out.println("Choice: " + choice + " Y: " + y + " Array int: " + arr.get(choice)); //used for testing
+            System.out.println(arr.get(choice));
+            arr.add(arr.get(choice));
+            arr.remove(choice);
+        }
     }
     
      //All the logic marginal cost
