@@ -103,12 +103,12 @@ public class ConSurplus extends JPanel
                     counter++;
                     repaint();
                 }
-                
+                System.out.println("Sell: $" + df.format(sell));
                 if (counter == 4) //Mission 1
                 {          
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304  ) //First choice
                     {
-                        if(ConSurplus.getValue(0,0).equals("$"+sell))
+                        if(ConSurplus.getValue(0,0).equals("$"+df.format(sell)))
                         {
                             Driver.dialogBox(1);
                             counter++;
@@ -122,7 +122,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
                     {
-                        if(ConSurplus.getValue(1,0).equals("$"+sell))
+                        if(ConSurplus.getValue(1,0).equals("$"+df.format(sell)))
                         {
                             Driver.dialogBox(1);
                             counter++;
@@ -134,7 +134,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
-                        if(ConSurplus.getValue(2,0).equals("$"+sell))
+                        if(ConSurplus.getValue(2,0).equals("$"+df.format(sell)))
                         {
                             Driver.dialogBox(1);
                             counter++;
@@ -146,7 +146,7 @@ public class ConSurplus extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
-                        if(ConSurplus.getValue(3,0).equals("$"+sell))
+                        if(ConSurplus.getValue(3,0).equals("$"+df.format(sell)))
                         {
                             Driver.dialogBox(1);
                             counter++;

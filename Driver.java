@@ -6,7 +6,7 @@ import java.awt.event.*;
 public class Driver extends JFrame
 {  
     static JFrame frame = new JFrame("Calcventures: Economics Edition"); 
-    static ImageIcon raiseIcon = new ImageIcon("Icons/Raise.png"), firedIcon = new ImageIcon("Icons/Fired.png");
+    static ImageIcon raiseIcon = new ImageIcon("Icons/Raise.png"), firedIcon = new ImageIcon("Icons/Fired.png"), correctIcon = new ImageIcon("Icons/Correct.png");
     
     public Driver()
     {
@@ -48,14 +48,14 @@ public class Driver extends JFrame
     {    
         if(whichBox == 0)
         {
-            JOptionPane.showMessageDialog(null,"You chose the right answer!", "You did it!", JOptionPane.INFORMATION_MESSAGE,raiseIcon);
+            JOptionPane.showMessageDialog(null,"You chose the right answer!", "You did it!", JOptionPane.INFORMATION_MESSAGE, raiseIcon);
             changeScreens("Raise");
         }
         else if(whichBox == 1)
-            JOptionPane.showMessageDialog(null,"You chose the right answer!", "You did it!", JOptionPane.INFORMATION_MESSAGE); 
+            JOptionPane.showMessageDialog(null,"You chose the right answer!", "You did it!", JOptionPane.INFORMATION_MESSAGE, correctIcon); 
         else
         {
-            JOptionPane.showMessageDialog(null, "You chose the wrong answer!", "Oh no!", JOptionPane.INFORMATION_MESSAGE,firedIcon);
+            JOptionPane.showMessageDialog(null, "You chose the wrong answer!", "Oh no!", JOptionPane.INFORMATION_MESSAGE, firedIcon);
             changeScreens("Fired");
         }
     }

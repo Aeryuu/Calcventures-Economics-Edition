@@ -108,7 +108,7 @@ public class ProSurplus extends JPanel
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304  ) //First choice
                     {
                         System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
-                        if(ProSurplus.getValue(0,0).equals("$"+sell))
+                        if(ProSurplus.getValue(0,0).equals("$"+df.format(sell)))
                         {
                             Driver.dialogBox(1);
                             counter++;
@@ -123,7 +123,7 @@ public class ProSurplus extends JPanel
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
                     {
                         System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
-                        if(ProSurplus.getValue(1,0).equals("$"+sell))
+                        if(ProSurplus.getValue(1,0).equals("$"+df.format(sell)))
                         {
                             Driver.dialogBox(1);
                             counter++;
@@ -136,7 +136,7 @@ public class ProSurplus extends JPanel
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
                         System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
-                        if(ProSurplus.getValue(2,0).equals("$"+sell))
+                        if(ProSurplus.getValue(2,0).equals("$"+df.format(sell)))
                         {
                             Driver.dialogBox(1);
                             counter++;
@@ -149,7 +149,7 @@ public class ProSurplus extends JPanel
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
                         System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
-                        if(ProSurplus.getValue(3,0).equals("$"+sell))
+                        if(ProSurplus.getValue(3,0).equals("$"+df.format(sell)))
                         {
                             Driver.dialogBox(1);
                             counter++;
