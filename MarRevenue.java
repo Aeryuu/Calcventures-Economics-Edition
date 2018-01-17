@@ -88,13 +88,11 @@ public class MarRevenue extends JPanel
                     {
                         if(MarRevenue.getValue(0).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                         //if answer is correct --> output a textbox telling them they are correct, Driver.changeScreens("Raise");
                         //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
@@ -103,39 +101,33 @@ public class MarRevenue extends JPanel
                     {
                         if(MarRevenue.getValue(1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
                         if(MarRevenue.getValue(2).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
                         if(MarRevenue.getValue(3).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                 }    

@@ -110,13 +110,12 @@ public class ConSurplus extends JPanel
                     {
                         if(ConSurplus.getValue(0,0).equals("$"+sell))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
+                            Driver.dialogBox(1);
                             counter++;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                         //if answer is correct --> output a textbox telling them they are correct, counter++, repaint();
                         //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
@@ -125,39 +124,36 @@ public class ConSurplus extends JPanel
                     {
                         if(ConSurplus.getValue(1,0).equals("$"+sell))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
+                            Driver.dialogBox(1);
                             counter++;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
                         if(ConSurplus.getValue(2,0).equals("$"+sell))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
+                            Driver.dialogBox(1);
                             counter++;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
                         if(ConSurplus.getValue(3,0).equals("$"+sell))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
+                            Driver.dialogBox(1);
                             counter++;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                 }
@@ -167,13 +163,11 @@ public class ConSurplus extends JPanel
                     {
                         if(ConSurplus.getValue(0,1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                         //if answer is correct --> output a textbox telling them they are correct, Driver.changeScreens("Raise");
                         //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
@@ -182,39 +176,33 @@ public class ConSurplus extends JPanel
                     {
                         if(ConSurplus.getValue(1,1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
                         if(ConSurplus.getValue(2,1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
                         if(ConSurplus.getValue(3,1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                 }        

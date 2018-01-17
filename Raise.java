@@ -29,8 +29,11 @@ public class Raise extends JPanel
   {
     MediaTracker tracker = new MediaTracker (new Frame ());    
     Image raise = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Raise.png");
+    Image character = Toolkit.getDefaultToolkit ().getImage ("Characters/" + CharacterSelect.character+".png");
     tracker.addImage (raise, 0); 
+    tracker.addImage(character,1);
     g.drawImage (raise, 0, 0, this);
+    g.drawImage(character,200,200,this);
     //put picture of character and write sentence with name
   }
 }

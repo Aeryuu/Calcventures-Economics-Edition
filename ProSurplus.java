@@ -20,14 +20,14 @@ public class ProSurplus extends JPanel
         coeff[2]=Calculate.randCons(1);
         coeff[1]=Calculate.randCoef(1,coeff[2]);
         coeff[0]=Calculate.randCoef2(1,coeff[2],coeff[1]);
-         if(coeff[1] != 0)
+        if(coeff[1] != 0)
         {
             if(coeff[1] == 1)
                 term2 = "+x";
             else
                 term2 = "+"+ maxDF.format(coeff[1]) + "x"; //Bx form
         }
-       if(coeff[0] != 0)
+        if(coeff[0] != 0)
         {
             if(coeff[0] == 1)
                 term3 = "+x^2";
@@ -54,20 +54,20 @@ public class ProSurplus extends JPanel
         System.out.println("Sales: " + sales); //partially used for testing
         
         //Calculates selling price and generates 4 options
-         for (int i = 0 ; i <= degree ; i++)
+        for (int i = 0 ; i <= degree ; i++)
         {
             sell += coeff[i] * Math.pow(sales,degree-i);
         }
         sell = Double.parseDouble(df.format(sell)); //sell becomes the rounded price displayed on screen
         arr = new ArrayList<String>(Arrays.asList("$" + df.format(sell),"$" + df.format(Math.abs(sell - coeff[2]))));
         if(-coeff[0]>0.001)
-            arr.add("$" + df.format(sell - coeff[0]*Math.pow(sales,2))); //Fake answer, didn't add Ax^2
+            arr.add("$" + df.format(Math.abs(sell - coeff[0]*Math.pow(sales,2)))); //Fake answer, didn't add Ax^2
         else 
-            arr.add("$" + df.format(sell - coeff[1]*sales)); //Fake answer, didn't add Bx
+            arr.add("$" + df.format(Math.abs(sell - coeff[1]*sales))); //Fake answer, didn't add Bx
         if((int)(Math.random()*2)==0)
-            arr.add("$" + df.format(sell/2)); //Fake answer, divided sell by two
+            arr.add("$" + df.format(Math.abs(sell/2))); //Fake answer, divided sell by two
         else
-            arr.add("$" + df.format(sell*2)); //Fake answer, multiplied sell by two 
+            arr.add("$" + df.format(Math.abs(sell*2))); //Fake answer, multiplied sell by two 
         int choice;
         for (int y = 4; y >= 1; y--)
         {
@@ -110,13 +110,12 @@ public class ProSurplus extends JPanel
                         System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
                         if(ProSurplus.getValue(0,0).equals("$"+sell))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
+                            Driver.dialogBox(1);
                             counter++;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                         //if answer is correct --> output a textbox telling them they are correct, counter++, repaint();
                         //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
@@ -126,13 +125,12 @@ public class ProSurplus extends JPanel
                         System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
                         if(ProSurplus.getValue(1,0).equals("$"+sell))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
+                            Driver.dialogBox(1);
                             counter++;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
@@ -140,13 +138,12 @@ public class ProSurplus extends JPanel
                         System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
                         if(ProSurplus.getValue(2,0).equals("$"+sell))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
+                            Driver.dialogBox(1);
                             counter++;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
@@ -154,13 +151,12 @@ public class ProSurplus extends JPanel
                         System.out.println(ProSurplus.getValue(0,0) + "        $" +sell);
                         if(ProSurplus.getValue(3,0).equals("$"+sell))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
+                            Driver.dialogBox(1);
                             counter++;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                 }
@@ -170,13 +166,11 @@ public class ProSurplus extends JPanel
                     {
                         if(ProSurplus.getValue(0,1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                         //if answer is correct --> output a textbox telling them they are correct, Driver.changeScreens("Raise");
                         //else if answer is incorrect --> output a textbox telling them they are incorrect, Driver.changeScreens("Fired");
@@ -185,39 +179,33 @@ public class ProSurplus extends JPanel
                     {
                         if(ProSurplus.getValue(1,1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
                         if(ProSurplus.getValue(2,1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
                         if(ProSurplus.getValue(3,1).equals(correct))
                         {
-                            JOptionPane.showMessageDialog(null, "You did it!");
-                            Driver.changeScreens("Raise");
+                            Driver.dialogBox(0);
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Oh no!", "Error!", JOptionPane.ERROR_MESSAGE);
-                            Driver.changeScreens("Fired");
+                            Driver.dialogBox(2);
                         }
                     }
                 }        

@@ -29,7 +29,7 @@ public class Fired extends JPanel
   {
     MediaTracker tracker = new MediaTracker (new Frame ());    
     Image fired = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Fired.png");
-    Image character = Toolkit.getDefaultToolkit ().getImage ("Characters/" + CharacterSelect.character+".png");
+    Image character = Toolkit.getDefaultToolkit ().getImage ("Characters/Fired" + CharacterSelect.character+".png");
     tracker.addImage (fired, 0); 
     tracker.addImage (character,1);
     g.drawImage (fired, 0, 0, this);
