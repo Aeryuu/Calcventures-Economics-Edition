@@ -71,7 +71,7 @@ public class AdventureSelect extends JPanel
         MediaTracker tracker = new MediaTracker (new Frame ());    
         
         Image a = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ConSurplus.png");
-//    Image b = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ProSurplus.png");
+        Image b = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ProSurplus.png");
 //    Image c = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargRevenue.png");
 //    Image d = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargCost.png");
 //    Image e = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargProfit.png");
@@ -79,7 +79,7 @@ public class AdventureSelect extends JPanel
         Image main = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select.png");
         
         tracker.addImage (a, 0);        
-//    tracker.addImage (b, 1);      
+      tracker.addImage (b, 1);      
 //    tracker.addImage (c, 2);   
 //    tracker.addImage (d, 3);  
 //    tracker.addImage (e, 4);   
@@ -106,10 +106,10 @@ public class AdventureSelect extends JPanel
         {
             graphics.drawImage (a, 0, 0, null); 
         }
-//    else if (adventure.equals("ProSurplus"))
-//    {
-//      graphics.drawImage (b, 0, 0, null); 
-//    }
+    else if (adventure.equals("ProSurplus"))
+    {
+      graphics.drawImage (b, 0, 0, null); 
+    }
 //    else if (adventure.equals("MargRevenue"))
 //    {
 //      graphics.drawImage (c, 0, 0, null); 

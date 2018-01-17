@@ -12,6 +12,7 @@ public class AdventureSelect extends JPanel
     
     public AdventureSelect ()
     {         
+            System.out.println(adventure);
         addMouseListener(new MouseAdapter() { 
             public void mousePressed(MouseEvent e) { 
                 int relativeX = e.getX();
@@ -27,24 +28,24 @@ public class AdventureSelect extends JPanel
                     adventure = "ProSurplus";
                     System.out.println (adventure);
                 }
-                else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 109 && relativeY <= 327 && adventure.equals("")) 
+//                else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 109 && relativeY <= 327 && adventure.equals("")) 
+//                {
+//                    adventure = "MargRevenue";
+//                    System.out.println (adventure);
+//                }
+//                else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 353 && relativeY <= 572 && adventure.equals("")) 
+//                {
+//                    adventure = "MargCost";
+//                    System.out.println (adventure);
+//                }
+                else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 109 && relativeY <= 327 && adventure.equals("")) //marg rev
                 {
-                    adventure = "MargRevenue";
+                    adventure = "MargRevenue";  
                     System.out.println (adventure);
                 }
-                else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 353 && relativeY <= 572 && adventure.equals("")) 
+                else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 353 && relativeY <= 572 && adventure.equals("")) //marg cost
                 {
-                    adventure = "MargCost";
-                    System.out.println (adventure);
-                }
-                else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 109 && relativeY <= 327 && adventure.equals(""))
-                {
-                    adventure = "MargProfit";  
-                    System.out.println (adventure);
-                }
-                else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 353 && relativeY <= 572 && adventure.equals(""))
-                {
-                    adventure = "NetInvestFlow";  
+                    adventure = "MargCost";  
                     System.out.println (adventure);
                 }
                 else if (relativeX >= 421 && relativeX <= 579 && relativeY >= 598 && relativeY <= 662 && adventure.equals("")) //Main menu
@@ -74,16 +75,12 @@ public class AdventureSelect extends JPanel
         Image b = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ProSurplus.png");
 //    Image c = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargRevenue.png");
 //    Image d = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargCost.png");
-//    Image e = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargProfit.png");
-//    Image f = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select NetInvestFlow.png");
         Image main = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select.png");
         
         tracker.addImage (a, 0);        
       tracker.addImage (b, 1);      
 //    tracker.addImage (c, 2);   
 //    tracker.addImage (d, 3);  
-//    tracker.addImage (e, 4);   
-//    tracker.addImage (f, 5);  
         tracker.addImage (main, 6);   
         
         try
@@ -101,6 +98,7 @@ public class AdventureSelect extends JPanel
         if (adventure.equals(""))
         {
             graphics.drawImage (main, 0, 0, null); 
+            System.out.println ("GOES HERE");
         }
         else if (adventure.equals("ConSurplus"))
         {
@@ -117,16 +115,7 @@ public class AdventureSelect extends JPanel
 //    else if (adventure.equals("MargCost"))
 //    {
 //      graphics.drawImage (d, 0, 0, null); 
-//    }
-//    else if (adventure.equals("MargProfit"))
-//    {
-//      graphics.drawImage (e, 0, 0, null); 
-//    }
-//    else if (adventure.equals("NetInvestFlow"))
-//    {
-//      graphics.drawImage (f, 0, 0, null); 
-//    }
-        
+//    }        
         repaint();
     }  
     
