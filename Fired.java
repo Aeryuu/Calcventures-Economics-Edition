@@ -35,7 +35,6 @@ public class Fired extends JPanel
     tracker.addImage (character,1);
     g.drawImage (fired, 0, 0, this);
     g.drawImage(character, 410, 280,this);
-    System.out.println(CharacterSelect.character);
     
   }
 }

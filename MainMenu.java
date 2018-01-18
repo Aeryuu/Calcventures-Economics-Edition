@@ -29,9 +29,7 @@ public class MainMenu extends JPanel
         
         int relativeX = e.getX();
         int relativeY = e.getY();
-        
-        System.out.println (relativeX + " " + relativeY);
-        
+                
         if (relativeX >= 105 && relativeX <= 404 && relativeY >= 226 && relativeY <= 421)
         {
           Driver.changeScreens("CharacterSelect");
@@ -39,7 +37,6 @@ public class MainMenu extends JPanel
         else if (relativeX >= 591 && relativeX <= 892 && relativeY >= 266 && relativeY <= 421)
         {
           Driver.changeScreens("Instructions");
-          System.out.println ("Instructions screen");
         }
         else if (relativeX >= 904 && relativeX <= 980 && relativeY >= 604 && relativeY <= 668)
         {

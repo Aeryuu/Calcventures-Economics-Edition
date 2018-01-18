@@ -13,12 +13,13 @@ public class Raise extends JPanel
         int relativeX = e.getX();
         int relativeY = e.getY();
         
-        if (relativeX >= 130 && relativeX <= 215 && relativeY >= 500 && relativeY <= 553) //Go back to main menu
+        if (relativeX >= 28 && relativeX <= 148 && relativeY >= 581 && relativeY <= 658) //Go back to main menu
         {
             Driver.changeScreens("MainMenu");
         }
-        else if (relativeX >= 130 && relativeX <= 215 && relativeY >= 500 && relativeY <= 553) //Go back to adventure choosing screen
+        else if (relativeX >= 853 && relativeX <= 973 && relativeY >= 581 && relativeY <= 658) //Go back to adventure choosing screen
         {
+           AdventureSelect.adventure = "";
             Driver.changeScreens("AdventureSelect");
         }
       } 
@@ -33,7 +34,7 @@ public class Raise extends JPanel
     tracker.addImage (raise, 0); 
     tracker.addImage(character,1);
     g.drawImage (raise, 0, 0, this);
-    g.drawImage(character,200,200,this);
+    g.drawImage(character, 340, 355,this);
     //put picture of character and write sentence with name
   }
 }

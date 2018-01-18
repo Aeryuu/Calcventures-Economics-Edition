@@ -35,6 +35,5 @@ public class Raise extends JPanel
     tracker.addImage(character,1);
     g.drawImage (raise, 0, 0, this);
     g.drawImage(character, 340, 355,this);
-    //put picture of character and write sentence with name
   }
 }
