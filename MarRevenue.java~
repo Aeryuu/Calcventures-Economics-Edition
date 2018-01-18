@@ -143,7 +143,7 @@ public class MarRevenue extends JPanel
     public void paintComponent (Graphics g)
     {
         MediaTracker tracker = new MediaTracker (new Frame ());    
-        Image marRevenue = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MargRevenue" + counter + ".png");
+        Image marRevenue = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MarRevenue" + counter + ".png");
         tracker.addImage (marRevenue, 0); 
         g.drawImage (marRevenue, 0, 0, null);
         g.setFont(new Font("Times New Roman", Font.PLAIN, 24));

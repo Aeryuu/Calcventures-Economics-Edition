@@ -40,7 +40,7 @@ public class AdventureSelect extends JPanel
                 }
                 else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 109 && relativeY <= 327 && adventure.equals("")) //marg rev
                 {
-                    adventure = "MargRevenue";  
+                    adventure = "MarRevenue";  
                     System.out.println (adventure);
                 }
                 else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 353 && relativeY <= 572 && adventure.equals("")) //marg cost
@@ -108,7 +108,7 @@ public class AdventureSelect extends JPanel
     {
       graphics.drawImage (b, 0, 0, null); 
     }
-    else if (adventure.equals("MargRevenue"))
+    else if (adventure.equals("MarRevenue"))
     {
       graphics.drawImage (c, 0, 0, null); 
     }
