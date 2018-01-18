@@ -28,19 +28,19 @@ public class AdventureSelect extends JPanel
                     adventure = "ProSurplus";
                     System.out.println (adventure);
                 }
-//                else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 109 && relativeY <= 327 && adventure.equals("")) 
-//                {
-//                    adventure = "MargRevenue";
-//                    System.out.println (adventure);
-//                }
-//                else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 353 && relativeY <= 572 && adventure.equals("")) 
-//                {
-//                    adventure = "MargCost";
-//                    System.out.println (adventure);
-//                }
+                else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 109 && relativeY <= 327 && adventure.equals("")) 
+                {
+                    adventure = "MargRevenue";
+                    System.out.println (adventure);
+                }
+                else if (relativeX >= 383 && relativeX <= 617 && relativeY >= 353 && relativeY <= 572 && adventure.equals("")) 
+                {
+                    adventure = "MargCost";
+                    System.out.println (adventure);
+                }
                 else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 109 && relativeY <= 327 && adventure.equals("")) //marg rev
                 {
-                    adventure = "MargRevenue";  
+                    adventure = "MarRevenue";  
                     System.out.println (adventure);
                 }
                 else if (relativeX >= 713 && relativeX <= 974 && relativeY >= 353 && relativeY <= 572 && adventure.equals("")) //marg cost
@@ -73,14 +73,14 @@ public class AdventureSelect extends JPanel
         
         Image a = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ConSurplus.png");
         Image b = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select ProSurplus.png");
-//    Image c = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargRevenue.png");
-//    Image d = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargCost.png");
+    Image c = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargRevenue.png");
+    Image d = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select MargCost.png");
         Image main = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/Adventure Select.png");
         
         tracker.addImage (a, 0);        
       tracker.addImage (b, 1);      
-//    tracker.addImage (c, 2);   
-//    tracker.addImage (d, 3);  
+    tracker.addImage (c, 2);   
+    tracker.addImage (d, 3);  
         tracker.addImage (main, 6);   
         
         try
@@ -108,14 +108,14 @@ public class AdventureSelect extends JPanel
     {
       graphics.drawImage (b, 0, 0, null); 
     }
-//    else if (adventure.equals("MargRevenue"))
-//    {
-//      graphics.drawImage (c, 0, 0, null); 
-//    }
-//    else if (adventure.equals("MargCost"))
-//    {
-//      graphics.drawImage (d, 0, 0, null); 
-//    }        
+    else if (adventure.equals("MarRevenue"))
+    {
+      graphics.drawImage (c, 0, 0, null); 
+    }
+    else if (adventure.equals("MargCost"))
+    {
+      graphics.drawImage (d, 0, 0, null); 
+    }        
         repaint();
     }  
     
