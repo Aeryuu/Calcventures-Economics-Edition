@@ -22,7 +22,7 @@ public class MargRevenue extends JPanel
         
         if(coeff[0] != 0)
         {
-             if(coeff[0] == -1)
+            if(coeff[0] == -1)
                 term2 = "-x";
             else
                 term2 = maxDF.format(coeff[0])+"x"; //Bx form
@@ -37,7 +37,7 @@ public class MargRevenue extends JPanel
             first = (int)(Math.random()*(second-10));
         System.out.println("max: " + max + " first: " + first + " and second: " + second); //partially used for testing
         
-       //Calculates integral and generates 4 options
+        //Calculates integral and generates 4 options
         arr = new ArrayList<String>(Arrays.asList("$" + df.format(Calculate.integrate(0, degree, coeff, first ,second, 0))));
         correct = arr.get(0);
         if(first != 0)
@@ -56,7 +56,7 @@ public class MargRevenue extends JPanel
             else
                 arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second/3,0))));
         }
-            arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first, (int)(Math.random()*second),0))));
+        arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first, (int)(Math.random()*second),0))));
         for (int y = 4; y >= 1; y--)
         {
             choice = (int)(Math.random()*y);
@@ -73,7 +73,7 @@ public class MargRevenue extends JPanel
                 int relativeY = e.getY();
                 System.out.println (relativeX + " " + relativeY);
                 
-                if (relativeX >= 832 && relativeX <= 916 && relativeY >= 548 && relativeY <= 601 && counter != 4 && counter != 6) //Next
+                if (relativeX >= 832 && relativeX <= 916 && relativeY >= 548 && relativeY <= 601 && counter != 4) //Next
                 {
                     counter++;
                     repaint();
@@ -140,7 +140,7 @@ public class MargRevenue extends JPanel
     public void paintComponent (Graphics g)
     {
         MediaTracker tracker = new MediaTracker (new Frame ());    
-        Image margRevenue = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MargRevenue" + counter + ".png");
+        Image margRevenue = Toolkit.getDefaultToolkit ().getImage("Backgrounds/MargRevenue" + counter + ".png");
         tracker.addImage (margRevenue, 0); 
         g.drawImage (margRevenue, 0, 0, null);
         g.setFont(new Font("Times New Roman", Font.PLAIN, 24));
@@ -152,7 +152,7 @@ public class MargRevenue extends JPanel
         }
         else if (counter == 2)
         {
-            g.drawString (first + " "+ second, 365, 315); //output the sales level onto the screen
+            g.drawString (first + " to "+ second, 365, 315); //output the sales level onto the screen
         }
         else if (counter == 4)
         {

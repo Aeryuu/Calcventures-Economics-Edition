@@ -247,7 +247,7 @@ public class ConSurplus extends JPanel
         {
             g.drawString (equation, 260, 350); //output the equation of the demand curve
             g.drawString (""+sales, 260, 417); //output the sales level
-            g.drawString ("$"+sell, 260, 477); //output the selling price
+            g.drawString ("$"+df.format(sell), 260, 477); //output the selling price
             g.drawString (arr2.get(0), 677, 289); //option 1
             g.drawString (arr2.get(1), 677, 368); //option 2
             g.drawString (arr2.get(2), 677, 451); //option 3

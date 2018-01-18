@@ -18,11 +18,11 @@ public class MargCost extends JPanel
     public MargCost()
     {      
         //Generates Equation
-       coeff[2]=Calculate.randCons(3);
+        coeff[2]=Calculate.randCons(3);
         coeff[1]=Calculate.randCoef(3, coeff[2]);
         coeff[0]=Calculate.randCoef2(3,coeff[2],coeff[1]);
         
-       if(coeff[1] != 0)
+        if(coeff[1] != 0)
         {
             if(coeff[1] == -1)
                 term2 = "-x";
@@ -39,7 +39,7 @@ public class MargCost extends JPanel
                 term3 = maxDF.format(coeff[0])+"x^2 "; //Ax^2 form
         }
         System.out.println(maxDF.format(coeff[2]) + term2 + term3);//just for testing
-        equation = maxDF.format(coeff[2]) + term2 + term3;
+        equation = maxDF.format(coeff[2]) + term2 + "+" + term3;
         
         //Generates sales level
         second = ((int)(Math.random()*9991)) + 10; 
@@ -51,17 +51,17 @@ public class MargCost extends JPanel
         start = Double.parseDouble(df.format(Math.random()*100001));
         System.out.println("Startup cost: " + start);
         
-       //Calculates integral and generates 4 options
+        //Calculates integral and generates 4 options
         arr = new ArrayList<String>(Arrays.asList("$" + df.format(Calculate.integrate(0, degree, coeff, first ,second, 0) + start), "$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,(int)(Math.random()*second),0))), "$" + df.format((Math.abs(Calculate.integrate(0, degree, coeff,first, second,0))))));
         correct = arr.get(0);
         if(first != 0)
-            arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,0,second,0))+ start));
+            arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,0,second,0))+ start));
         else
         {
             if((int)(Math.random()*2)==0)
-                arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second*2,0))+ start));
+                arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second*2,0))+ start));
             else
-                arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second/2,0))+ start));
+                arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second/2,0))+ start));
         }
         for (int y = 4; y >= 1; y--)
         {
@@ -79,13 +79,13 @@ public class MargCost extends JPanel
                 int relativeY = e.getY();
                 System.out.println (relativeX + " " + relativeY);
                 
-                if (relativeX >= 832 && relativeX <= 916 && relativeY >= 548 && relativeY <= 601 && counter != 4 && counter != 6) //Next
+                if (relativeX >= 832 && relativeX <= 916 && relativeY >= 548 && relativeY <= 601 && counter != 5) //Next
                 {
                     counter++;
                     repaint();
                 }
                 
-                if (counter == 4) //Mission 1
+                if (counter == 5) //Mission 1
                 {          
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
                     {
@@ -149,21 +149,26 @@ public class MargCost extends JPanel
         Image margCost = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MargCost" + counter + ".png");
         tracker.addImage (margCost, 0); 
         g.drawImage (margCost, 0, 0, null);
-        g.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+        g.setFont(new Font("Times New Roman", Font.PLAIN, 20));
         g.setColor (Color.red);
         
         if (counter == 1)
         {
-            g.drawString (equation, 282, 307); //output the equation of the demand curve onto the screen
+            g.drawString (equation, 280, 285); //output the equation of the demand curve onto the screen
         }
         else if (counter == 2)
         {
-            g.drawString (first + " "+ second, 365, 315); //output the sales level onto the screen
+            g.drawString (first + " to "+ second, 330, 315); //output the sales level onto the screen
         }
-        else if (counter == 4)
+        else if (counter == 3)
         {
-            g.drawString (equation, 260, 350); //output the equation of the demand curve
-            g.drawString (first + " to "+ second, 260, 447); //output the sales level
+            g.drawString ("$"+df.format(start), 375, 295); //output the sales level onto the screen
+        }
+        else if (counter == 5)
+        {
+            g.drawString (equation, 260, 338); //output the equation of the demand curve
+            g.drawString (first + " to "+ second, 260, 410); //output the sales level
+            g.drawString ("$"+df.format(start), 260, 470); //output the sales level
             g.drawString (arr.get(0), 677, 289); //option 1
             g.drawString (arr.get(1), 677, 368); //option 2
             g.drawString (arr.get(2), 677, 451); //option 3
