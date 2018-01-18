@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<drjava version="drjava-20140826-r5761">
+  <project autorefresh="false" root="" work="">
+    <createjar file=""/>
+    <source>
+      <file name="Driver.java" package="" timestamp="17-Jan-2018 17:18:23">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="AdventureSelect.java" package="" timestamp="17-Jan-2018 23:39:03">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Calculate.java" package="" timestamp="17-Jan-2018 23:39:07">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="CharacterSelect.java" package="" timestamp="15-Jan-2018 21:32:11">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="ConSurplus.java" package="" timestamp="17-Jan-2018 23:39:07">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Fired.java" package="" timestamp="17-Jan-2018 23:39:03">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Instructions.java" package="" timestamp="17-Jan-2018 09:31:27">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="MainMenu.java" package="" timestamp="17-Jan-2018 23:39:03">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="MargCost.java" package="" timestamp="17-Jan-2018 23:39:07">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="MargRevenue.java" package="" timestamp="17-Jan-2018 23:39:07">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="ProSurplus.java" package="" timestamp="17-Jan-2018 23:39:07">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="Raise.java" package="" timestamp="17-Jan-2018 23:39:03">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+      <file name="SplashScreen.java" package="" timestamp="28-Dec-2017 12:24:58">
+        <select from="0" to="0"/>
+        <scroll column="0" row="0"/>
+      </file>
+    </source>
+    <included/>
+    <excluded/>
+    <collapsed/>
+    <classpath/>
+    <breakpoints/>
+    <watches/>
+    <bookmarks/>
+    <preferences/>
+  </project>
+</drjava>
