@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-public class MarCost extends JPanel
+public class MargCost extends JPanel
 {
     int degree = 2, counter = 1;
     double [] coeff = new double[degree + 1];
@@ -15,7 +15,7 @@ public class MarCost extends JPanel
     double start;
     static ArrayList<String> arr;
     
-    public MarCost()
+    public MargCost()
     {      
         //Generates Equation
        coeff[2]=Calculate.randCons(3);
@@ -38,8 +38,8 @@ public class MarCost extends JPanel
             else
                 term3 = maxDF.format(coeff[0])+"x^2 "; //Ax^2 form
         }
-        System.out.println(maxDF.format(coeff[1]) + term2 + term3);//just for testing
-        equation = maxDF.format(coeff[1]) + term2 + term3;
+        System.out.println(maxDF.format(coeff[2]) + term2 + term3);//just for testing
+        equation = maxDF.format(coeff[2]) + term2 + term3;
         
         //Generates sales level
         second = ((int)(Math.random()*9991)) + 10; 
@@ -89,7 +89,7 @@ public class MarCost extends JPanel
                 {          
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
                     {
-                        if(MarRevenue.getValue(0).equals(correct))
+                        if(MargCost.getValue(0).equals(correct))
                         {
                             Driver.dialogBox(0);
                         }
@@ -102,7 +102,7 @@ public class MarCost extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
                     {
-                        if(MarRevenue.getValue(1).equals(correct))
+                        if(MargCost.getValue(1).equals(correct))
                         {
                             Driver.dialogBox(0);
                         }
@@ -113,7 +113,7 @@ public class MarCost extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
-                        if(MarRevenue.getValue(2).equals(correct))
+                        if(MargCost.getValue(2).equals(correct))
                         {
                             Driver.dialogBox(0);
                         }
@@ -124,7 +124,7 @@ public class MarCost extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
-                        if(MarRevenue.getValue(3).equals(correct))
+                        if(MargCost.getValue(3).equals(correct))
                         {
                             Driver.dialogBox(0);
                         }
@@ -146,9 +146,9 @@ public class MarCost extends JPanel
     public void paintComponent (Graphics g)
     {
         MediaTracker tracker = new MediaTracker (new Frame ());    
-        Image marCost = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MarCost" + counter + ".png");
-        tracker.addImage (marCost, 0); 
-        g.drawImage (marCost, 0, 0, null);
+        Image margCost = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MargCost" + counter + ".png");
+        tracker.addImage (margCost, 0); 
+        g.drawImage (margCost, 0, 0, null);
         g.setFont(new Font("Times New Roman", Font.PLAIN, 24));
         g.setColor (Color.red);
         

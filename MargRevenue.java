@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-public class MarRevenue extends JPanel
+public class MargRevenue extends JPanel
 {
     int degree = 1, counter = 1;
     double [] coeff = new double[degree + 1];
@@ -14,7 +14,7 @@ public class MarRevenue extends JPanel
     int max = 0, first = 0, second = 0, choice = 0;
     static ArrayList<String> arr;
     
-    public MarRevenue()
+    public MargRevenue()
     {      
         //Generates Equation
         coeff[1]=Calculate.randCons(2);
@@ -83,7 +83,7 @@ public class MarRevenue extends JPanel
                 {          
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304) //First choice
                     {
-                        if(MarRevenue.getValue(0).equals(correct))
+                        if(MargRevenue.getValue(0).equals(correct))
                         {
                             Driver.dialogBox(0);
                         }
@@ -96,7 +96,7 @@ public class MarRevenue extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 336 && relativeY <= 382) //Second choice
                     {
-                        if(MarRevenue.getValue(1).equals(correct))
+                        if(MargRevenue.getValue(1).equals(correct))
                         {
                             Driver.dialogBox(0);
                         }
@@ -107,7 +107,7 @@ public class MarRevenue extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 417 && relativeY <= 465) //Third choice
                     {
-                        if(MarRevenue.getValue(2).equals(correct))
+                        if(MargRevenue.getValue(2).equals(correct))
                         {
                             Driver.dialogBox(0);
                         }
@@ -118,7 +118,7 @@ public class MarRevenue extends JPanel
                     }
                     else if (relativeX >= 601 && relativeX <= 868 && relativeY >= 498 && relativeY <= 545) //Last choice
                     {
-                        if(MarRevenue.getValue(3).equals(correct))
+                        if(MargRevenue.getValue(3).equals(correct))
                         {
                             Driver.dialogBox(0);
                         }
@@ -140,9 +140,9 @@ public class MarRevenue extends JPanel
     public void paintComponent (Graphics g)
     {
         MediaTracker tracker = new MediaTracker (new Frame ());    
-        Image marRevenue = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MargRevenue" + counter + ".png");
-        tracker.addImage (marRevenue, 0); 
-        g.drawImage (marRevenue, 0, 0, null);
+        Image margRevenue = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MargRevenue" + counter + ".png");
+        tracker.addImage (margRevenue, 0); 
+        g.drawImage (margRevenue, 0, 0, null);
         g.setFont(new Font("Times New Roman", Font.PLAIN, 24));
         g.setColor (Color.red);
         
