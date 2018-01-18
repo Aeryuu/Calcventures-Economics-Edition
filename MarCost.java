@@ -4,59 +4,65 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.*;
 
-public class MarRevenue extends JPanel
+public class MarCost extends JPanel
 {
-    int degree = 1, counter = 1;
+    int degree = 2, counter = 1;
     double [] coeff = new double[degree + 1];
     DecimalFormat maxDF = new DecimalFormat("#.###################");
     DecimalFormat df = new DecimalFormat ("0.00");
-    String term2 = "", equation = "", correct = "";
-    int max = 0, first = 0, second = 0, choice = 0;
+    String term2 = "", term3 = "", equation = "", correct = "";
+    int first = 0, second = 0, choice = 0;
+    double start;
     static ArrayList<String> arr;
     
-    public MarRevenue()
+    public MarCost()
     {      
         //Generates Equation
-        coeff[1]=Calculate.randCons(2);
-        coeff[0]=Calculate.randCoef(2, coeff[1]);
+       coeff[2]=Calculate.randCons(3);
+        coeff[1]=Calculate.randCoef(3, coeff[2]);
+        coeff[0]=Calculate.randCoef2(3,coeff[2],coeff[1]);
         
+       if(coeff[1] != 0)
+        {
+            if(coeff[1] == -1)
+                term2 = "-x";
+            else if(coeff[1] == 1)
+                term2 = "x";
+            else
+                term2 = maxDF.format(coeff[1])+"x"; //Bx form
+        }
         if(coeff[0] != 0)
         {
-             if(coeff[0] == -1)
-                term2 = "-x";
+            if(coeff[0] == 1)
+                term3 = "+x^2";
             else
-                term2 = maxDF.format(coeff[0])+"x"; //Bx form
+                term3 = maxDF.format(coeff[0])+"x^2 "; //Ax^2 form
         }
-        System.out.println(maxDF.format(coeff[1]) + term2);//just for testing
-        equation = maxDF.format(coeff[1]) + term2;
+        System.out.println(maxDF.format(coeff[1]) + term2 + term3);//just for testing
+        equation = maxDF.format(coeff[1]) + term2 + term3;
         
         //Generates sales level
-        max = (int)(-coeff[1]/coeff[0]);
-        second = (int)(Math.random()*(max-30)+30); 
+        second = ((int)(Math.random()*9991)) + 10; 
         if((int)(Math.random()*2) == 1)
             first = (int)(Math.random()*(second-10));
-        System.out.println("max: " + max + " first: " + first + " and second: " + second); //partially used for testing
+        System.out.println(" first: " + first + " and second: " + second); //partially used for testing
+        
+        //Generates startup cost
+        start = Double.parseDouble(df.format(Math.random()*100001));
+        System.out.println("Startup cost: " + start);
         
        //Calculates integral and generates 4 options
-        arr = new ArrayList<String>(Arrays.asList("$" + df.format(Calculate.integrate(0, degree, coeff, first ,second, 0))));
+        arr = new ArrayList<String>(Arrays.asList("$" + df.format(Calculate.integrate(0, degree, coeff, first ,second, 0) + start), "$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,(int)(Math.random()*second),0))), "$" + df.format((Math.abs(Calculate.integrate(0, degree, coeff,first, second,0))))));
         correct = arr.get(0);
         if(first != 0)
-        {
-            arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first ,second + (second-first),0))));
-            arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,0,second,0))));
-        }
+            arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,0,second,0))+ start));
         else
         {
-            if ((int)(Math.random()*2)==0)
-                arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second/2,0))));
-            else
-                arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first ,second*2,0))));
             if((int)(Math.random()*2)==0)
-                arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second*3,0))));
+                arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second*2,0))+ start));
             else
-                arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second/3,0))));
+                arr.add("C) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,second/2,0))+ start));
         }
-            arr.add("$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first, (int)(Math.random()*second),0))));
         for (int y = 4; y >= 1; y--)
         {
             choice = (int)(Math.random()*y);
@@ -140,9 +146,9 @@ public class MarRevenue extends JPanel
     public void paintComponent (Graphics g)
     {
         MediaTracker tracker = new MediaTracker (new Frame ());    
-        Image marRevenue = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MarRevenue" + counter + ".png");
-        tracker.addImage (marRevenue, 0); 
-        g.drawImage (marRevenue, 0, 0, null);
+        Image marCost = Toolkit.getDefaultToolkit ().getImage ("Backgrounds/MarCost" + counter + ".png");
+        tracker.addImage (marCost, 0); 
+        g.drawImage (marCost, 0, 0, null);
         g.setFont(new Font("Times New Roman", Font.PLAIN, 24));
         g.setColor (Color.red);
         

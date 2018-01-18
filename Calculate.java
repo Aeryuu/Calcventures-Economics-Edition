@@ -104,19 +104,30 @@ public class Calculate
             System.out.println(dig);
             //if 1: 1 - 9; if 2: 10 - 99; if 3: 100 - 999; if 0: [0,1)
             if(dig == 3)
-                return ((int) (Math.random()*900) + 100);
-            if(dig == 2)
+                return ((int) (Math.random()*400) + 100);
+            else if(dig == 2)
                 return ((int) (Math.random()*90) + 10);
-            if(dig == 1)
+            else if(dig == 1)
                 return ((int) (Math.random()*9) + 1);
-            return Math.random();
+            else
+            {
+                double rand = Math.random();
+                double start = 0.1;
+                StringBuilder pattern = new StringBuilder().append("0.0");
+                while(rand < start)
+                {
+                    start = start /10;
+                    pattern.append("0");
+                }
+                DecimalFormat df = new DecimalFormat(pattern.toString());
+                return Double.parseDouble(df.format(rand));
+            }
         }
         return 0;
     }
     
     public static double randCoef(int whichAd, double cons)
     {
-        DecimalFormat maxDigitsFormatter = new DecimalFormat("#.###################");
         StringBuilder pattern;
         double rand, start;
         if(whichAd == 0)
@@ -158,6 +169,21 @@ public class Calculate
             DecimalFormat df = new DecimalFormat(pattern.toString());
             return -(Double.parseDouble(df.format(rand)));
         }
+        if(whichAd == 3)
+        {
+            rand = (Math.random()*(cons/10000));
+            start = 0.1;
+            pattern = new StringBuilder().append("0.0");
+            while(rand < start)
+            {
+                start = start /10;
+                pattern.append("0");
+            }
+            DecimalFormat df = new DecimalFormat(pattern.toString());
+            if(Math.random()*10 == 5)
+                return Double.parseDouble(df.format(rand));
+            return -(Double.parseDouble(df.format(rand)));
+        }
         return 0;
     }
     
@@ -169,7 +195,8 @@ public class Calculate
         double rand, start = 0.1;
         if(whichAd == 0)
         {
-            if((int)(Math.random()*3) != 2){
+            if((int)(Math.random()*3) != 2)
+            {
                 if(-coef <= 0.0001) //To see how small third coef should be; this depends on how close coef is to cons/100. The closer it is, the smaller third coef is.
                     dig = -4;
                 else if(cons/100 + coef > 0.1)
@@ -187,21 +214,36 @@ public class Calculate
                     pattern.append("0");
                 }
                 DecimalFormat df = new DecimalFormat(pattern.toString());
-                //System.out.println(df.format(
                 return -(Double.parseDouble(df.format(rand)));
             }
         }
         if(whichAd == 1)
         {
-            rand = (Math.random()*0.001);
-            start = 0.1;
-            while(rand < start)
-            {
-                start = start /10;
-                pattern.append("0");
+            if((int)(Math.random()*3) != 2){
+                rand = (Math.random()*0.001);
+                while(rand < start)
+                {
+                    start = start /10;
+                    pattern.append("0");
+                }
+                DecimalFormat df = new DecimalFormat(pattern.toString());
+                return Double.parseDouble(df.format(rand));
             }
-            DecimalFormat df = new DecimalFormat(pattern.toString());
-            return Double.parseDouble(df.format(rand));
+        }
+        if(whichAd == 3)
+        {
+            if(coef <= 0)
+            {
+                double num = cons/10000000-cons/100000000;
+                rand = (Math.random()*num)+cons/100000000;
+                while(rand < start)
+                {
+                    start = start /10;
+                    pattern.append("0");
+                }
+                DecimalFormat df = new DecimalFormat(pattern.toString());
+                return Double.parseDouble(df.format(rand));
+            }
         }
         return 0;
     }
