@@ -148,11 +148,11 @@ public class MargRevenue extends JPanel
         
         if (counter == 1)
         {
-            g.drawString (equation, 331, 288); //output the equation of the demand curve onto the screen
+            g.drawString (equation, 282, 307); //output the equation of the demand curve onto the screen
         }
         else if (counter == 2)
         {
-            g.drawString (first + " to "+ second, 343, 315); //output the sales level onto the screen
+            g.drawString (first + " to "+ second, 365, 315); //output the sales level onto the screen
         }
         else if (counter == 4)
         {
