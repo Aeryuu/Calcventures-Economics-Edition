@@ -34,7 +34,6 @@ public class ConSurplus extends JPanel
             else
                 term3 = maxDF.format(coeff[0])+"x^2 "; //Ax^2 form
         }
-        System.out.println(maxDF.format(coeff[2]) + term2 + term3);//just for consur //just for testing
         equation = maxDF.format(coeff[2]) + term2 + term3;
         
         //Generates sales level
@@ -42,7 +41,6 @@ public class ConSurplus extends JPanel
         {
             int x1=(int)((-coeff[1]+(Math.sqrt(Math.pow(coeff[1],2)-4*coeff[0]*coeff[2])))/(2*coeff[0]));
             int x2=(int)((-coeff[1]-(Math.sqrt(Math.pow(coeff[1],2)-4*coeff[0]*coeff[2])))/(2*coeff[0]));
-            System.out.println("x1: " + x1 + " and x2: " + x2); //used for testing
             if(x2>0 && (x2 < x1 || x1 < 0))
                 x = x2;
             if(x1>0 && (x1 < x2 || x2 < 0))
@@ -51,7 +49,6 @@ public class ConSurplus extends JPanel
         else
             x = (int)(-coeff[2]/coeff[1]);
         sales = (int)(Math.random()*(x-10)+10);
-        System.out.println("x: " + x + " and Sales: " + sales); //partially used for testing
         
         //Calculates selling price and generates 4 options
         for (int i = 0 ; i <= degree ; i++)
@@ -73,8 +70,6 @@ public class ConSurplus extends JPanel
         for (int y = 4; y >= 1; y--)
         {
             choice = (int)(Math.random()*y);
-            System.out.println("Choice: " + choice + " Y: " + y + " Array int" + arr.get(choice)); //used for testing
-            System.out.println(arr.get(choice));
             arr.add(arr.get(choice));
             arr.remove(choice);
         }
@@ -85,8 +80,6 @@ public class ConSurplus extends JPanel
         for (int y = 4; y >= 1; y--)
         {
             choice = (int)(Math.random()*y);
-            System.out.println("Choice: " + choice + " Y: " + y + " Array int" + arr2.get(choice)); //used for testing
-            System.out.println(arr2.get(choice));
             arr2.add(arr2.get(choice));
             arr2.remove(choice);
         }
@@ -96,14 +89,12 @@ public class ConSurplus extends JPanel
                 
                 int relativeX = e.getX();
                 int relativeY = e.getY();
-                System.out.println (relativeX + " " + relativeY);
                 
                 if (relativeX >= 832 && relativeX <= 916 && relativeY >= 548 && relativeY <= 601 && counter != 4 && counter != 6) //Next
                 {
                     counter++;
                     repaint();
                 }
-                System.out.println("Sell: $" + df.format(sell));
                 if (counter == 4) //Mission 1
                 {          
                     if (relativeX >= 601 && relativeX <= 868 && relativeY >= 257 && relativeY <= 304  ) //First choice

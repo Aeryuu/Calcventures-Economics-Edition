@@ -38,18 +38,15 @@ public class MargCost extends JPanel
             else
                 term3 = maxDF.format(coeff[0])+"x^2 "; //Ax^2 form
         }
-        System.out.println(maxDF.format(coeff[2]) + term2 + term3);//just for testing
         equation = maxDF.format(coeff[2]) + term2 + "+" + term3;
         
         //Generates sales level
         second = ((int)(Math.random()*9991)) + 10; 
         if((int)(Math.random()*2) == 1)
             first = (int)(Math.random()*(second-10));
-        System.out.println(" first: " + first + " and second: " + second); //partially used for testing
         
         //Generates startup cost
         start = Double.parseDouble(df.format(Math.random()*100001));
-        System.out.println("Startup cost: " + start);
         
         //Calculates integral and generates 4 options
         arr = new ArrayList<String>(Arrays.asList("$" + df.format(Calculate.integrate(0, degree, coeff, first ,second, 0) + start), "$" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,(int)(Math.random()*second),0))), "$" + df.format((Math.abs(Calculate.integrate(0, degree, coeff,first, second,0))))));
@@ -66,8 +63,6 @@ public class MargCost extends JPanel
         for (int y = 4; y >= 1; y--)
         {
             choice = (int)(Math.random()*y);
-            System.out.println("Choice: " + choice + " Y: " + y + " Array int: " + arr.get(choice)); //used for testing
-            System.out.println(arr.get(choice));
             arr.add(arr.get(choice));
             arr.remove(choice);
         }
@@ -77,7 +72,6 @@ public class MargCost extends JPanel
                 
                 int relativeX = e.getX();
                 int relativeY = e.getY();
-                System.out.println (relativeX + " " + relativeY);
                 
                 if (relativeX >= 832 && relativeX <= 916 && relativeY >= 548 && relativeY <= 601 && counter != 5) //Next
                 {

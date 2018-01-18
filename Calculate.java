@@ -36,12 +36,6 @@ public class Calculate
                         indefinite [i] = coefficient [i] / (count + 1);
                     count--;
                 }
-                System.out.print ("The indefinite integral is:\t"); //used for testing
-                for (int i = 0 ; i <= degree ; i++)
-                {
-                    System.out.print (indefinite [i] + "\t"); //used for testing
-                }
-                System.out.println ("C"); //used for testing
                 count = degree + 1;
                 for (int i = 0 ; i <= degree ; i++)
                 {
@@ -51,8 +45,6 @@ public class Calculate
                     area2 += temp2 [i];
                     count--;
                 }
-                System.out.println ("The area for these definite limits is " + df.format (area - area2) + " square units."); //used for testing
-                
             }
             catch (Throwable t)
             {
@@ -79,7 +71,6 @@ public class Calculate
         if(whichAd == 1)
         {
             dig = ((int)(Math.random()*3)+1);
-            System.out.println(dig);
             //if 1: 1 - 9; if 2: 10 - 99; if 3: 100 - 999
             if(dig == 3)
                 return ((int) (Math.random()*900) + 100);
@@ -101,7 +92,6 @@ public class Calculate
         if(whichAd == 3)
         {
             dig = (int)(Math.random()*4);
-            System.out.println(dig);
             //if 1: 1 - 9; if 2: 10 - 99; if 3: 100 - 999; if 0: [0,1)
             if(dig == 3)
                 return ((int) (Math.random()*400) + 100);

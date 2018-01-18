@@ -27,7 +27,6 @@ public class MargRevenue extends JPanel
             else
                 term2 = maxDF.format(coeff[0])+"x"; //Bx form
         }
-        System.out.println(maxDF.format(coeff[1]) + term2);//just for testing
         equation = maxDF.format(coeff[1]) + term2;
         
         //Generates sales level
@@ -35,7 +34,6 @@ public class MargRevenue extends JPanel
         second = (int)(Math.random()*(max-30)+30); 
         if((int)(Math.random()*2) == 1)
             first = (int)(Math.random()*(second-10));
-        System.out.println("max: " + max + " first: " + first + " and second: " + second); //partially used for testing
         
         //Calculates integral and generates 4 options
         arr = new ArrayList<String>(Arrays.asList("$" + df.format(Calculate.integrate(0, degree, coeff, first ,second, 0))));
@@ -60,8 +58,6 @@ public class MargRevenue extends JPanel
         for (int y = 4; y >= 1; y--)
         {
             choice = (int)(Math.random()*y);
-            System.out.println("Choice: " + choice + " Y: " + y + " Array int: " + arr.get(choice)); //used for testing
-            System.out.println(arr.get(choice));
             arr.add(arr.get(choice));
             arr.remove(choice);
         }
@@ -71,7 +67,6 @@ public class MargRevenue extends JPanel
                 
                 int relativeX = e.getX();
                 int relativeY = e.getY();
-                System.out.println (relativeX + " " + relativeY);
                 
                 if (relativeX >= 832 && relativeX <= 916 && relativeY >= 548 && relativeY <= 601 && counter != 4) //Next
                 {
