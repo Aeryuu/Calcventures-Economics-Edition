@@ -157,7 +157,7 @@ public class MarRevenue extends JPanel
         else if (counter == 4)
         {
             g.drawString (equation, 260, 350); //output the equation of the demand curve
-            g.drawString (first + " "+ second, 260, 447); //output the sales level
+            g.drawString (first + " to "+ second, 260, 447); //output the sales level
             g.drawString (arr.get(0), 677, 289); //option 1
             g.drawString (arr.get(1), 677, 368); //option 2
             g.drawString (arr.get(2), 677, 451); //option 3

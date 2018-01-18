@@ -103,6 +103,7 @@ public class Tester
         //Screen 3: Startup cost
         double start = Double.parseDouble(df.format(Math.random()*100001));
         System.out.println("Startup cost: " + start);
+        
         //Screen 4: Calculate integral
         arr = new ArrayList<String>(Arrays.asList("A) $" + df.format(Calculate.integrate(0, degree, coeff, first ,second, 0) + start), "B) $" + df.format(Math.abs(Calculate.integrate(0, degree, coeff,first,(int)(Math.random()*second),0)))));
         if(first != 0)
